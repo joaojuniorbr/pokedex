@@ -6,13 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-	plugins: [
-		svgr(),
-		react({
-			jsxRuntime: 'classic',
-		}),
-		tsconfigPaths(),
-	],
+	plugins: [svgr(), tsconfigPaths(), react()],
 	optimizeDeps: {
 		exclude: ['coverage'],
 	},
