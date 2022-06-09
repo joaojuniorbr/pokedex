@@ -21,7 +21,7 @@ export type TTypes =
 	| 'shadow';
 
 export interface IIconHeaderMenu {
-	handleClick?: () => void;
+	url: string;
 	name: string;
 	icon: React.ReactNode;
 }

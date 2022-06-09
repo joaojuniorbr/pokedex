@@ -316,6 +316,6 @@ export const IconType = ({
 }) => (
 	<Wrapper size={size} color={name as TTypes}>
 		<em>{MAIN_ICONS[name as TTypes]}</em>
-		<span>{name}</span>
+		{size !== 'icon' && size !== 'icon-sm' && <span>{name}</span>}
 	</Wrapper>
 );

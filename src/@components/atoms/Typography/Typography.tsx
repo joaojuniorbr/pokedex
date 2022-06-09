@@ -1,3 +1,4 @@
+import React from 'react';
 import { styled } from 'src/@common/ui';
 
 type TTypography = 'default' | 'title';
@@ -20,6 +21,9 @@ const Type = styled('div', {
 	},
 });
 
-export const Typography = ({ name }: { name?: TTypography }) => (
-	<Type name={name} />
+export const Typography: React.FC = ({
+	name,
+	children,
+}: React.PropsWithChildren<{ name?: TTypography }>) => (
+	<Type name={name}>{children}</Type>
 );

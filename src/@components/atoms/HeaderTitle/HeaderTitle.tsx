@@ -39,7 +39,7 @@ export const HeaderTitle = ({ title }: { title: string }) => {
 
 	return (
 		<Wrapper>
-			<IconBack onClick={handleBack}>
+			<IconBack onClick={handleBack} aria-label='Voltar'>
 				<MdOutlineArrowBack />
 			</IconBack>
 			<Title>{title}</Title>

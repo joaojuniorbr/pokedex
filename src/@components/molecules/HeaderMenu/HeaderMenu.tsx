@@ -1,5 +1,4 @@
 import { RiFilter3Line, RiSettings3Line, RiHome2Line } from 'react-icons/ri';
-import { useNavigate } from 'react-router-dom';
 
 import { styled } from 'src/@common/ui';
 
@@ -12,45 +11,25 @@ const Wrapper = styled('div', {
 		alignItems: 'center',
 		display: 'flex',
 		listStyle: 'none',
-
-		li: {
-			button: {
-				alignItems: 'center',
-				background: 'transparent',
-				border: 'none',
-				color: '$dark',
-				display: 'flex',
-				fontSize: '20px',
-				height: 40,
-				justifyContent: 'center',
-				width: 40,
-
-				svg: {
-					display: 'block',
-				},
-			},
-		},
 	},
 });
 
 export const HeaderMenu = () => {
-	const navigate = useNavigate();
-
 	const ITEMS_MENU = [
 		{
 			icon: <RiHome2Line />,
-			name: '',
-			handleClick: () => navigate('/'),
+			name: 'Home',
+			url: '/',
 		},
 		{
 			icon: <RiFilter3Line />,
 			name: 'Filtros',
-			handleClick: () => navigate('/tipos'),
+			url: '/tipos',
 		},
 		{
 			icon: <RiSettings3Line />,
 			name: 'Configurações',
-			handleClick: () => {},
+			url: '/configuracoes',
 		},
 	];
 
