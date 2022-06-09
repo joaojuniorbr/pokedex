@@ -1,6 +1,9 @@
 import { styled } from 'src/@common/ui';
+import { reduceUrlId } from 'src/@common/helpers';
+
 import { IconType } from 'src/@components/atoms';
-import { usePokemon } from 'src/@hooks/usePokemon';
+
+import { usePokemon } from 'src/@hooks';
 
 const Wrapper = styled('div', {
 	backgroundColor: '$defaultGray',
@@ -53,30 +56,24 @@ export const PokemonCard = ({
 }: {
 	item: { name: string; url: string };
 }) => {
-	const reduceUrlImage = () => {
-		return url
-			.replace('https://pokeapi.co/api/v2/pokemon/', '')
-			.replace('/', '')
-			.padStart(3, '0');
-	};
-
 	const { results } = usePokemon(name);
 
 	return (
 		<Wrapper>
 			<Image>
 				<img
-					src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${reduceUrlImage()}.png`}
+					src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${reduceUrlId(
+						url
+					)}.png`}
 					alt={name}
 					loading='lazy'
 				/>
 			</Image>
 			<Info>
 				<small>
-					<span>#{reduceUrlImage()}</span>
+					<span>#{reduceUrlId(url)}</span>
 				</small>
 				<h3>{name}</h3>
-
 				<ul>
 					{results?.types.map((item) => (
 						<li key={item.type.name}>

@@ -3,9 +3,12 @@ import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { withPerformance } from 'storybook-addon-performance';
 
+import { QueryClientProvider } from 'react-query';
+
 import results from '../.jest-test-results.json';
 
 import { globalStyles, styled } from '../src/@common/ui';
+import { QueryClient } from '../src/@services';
 
 addDecorator(withPerformance);
 
@@ -36,11 +39,13 @@ export const decorators = [
 		globalStyles();
 
 		return (
-			<BrowserRouter>
-				<Layout>
-					<Story />
-				</Layout>
-			</BrowserRouter>
+			<QueryClientProvider client={QueryClient}>
+				<BrowserRouter>
+					<Layout>
+						<Story />
+					</Layout>
+				</BrowserRouter>
+			</QueryClientProvider>
 		);
 	},
 ];

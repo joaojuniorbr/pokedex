@@ -1,11 +1,16 @@
-import React from 'react';
-import { RenderOptions, render, RenderResult } from '@testing-library/react';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { MemoryRouter } from 'react-router-dom';
+import { QueryClientProvider } from 'react-query';
+
+import { RenderOptions, render, RenderResult } from '@testing-library/react';
+
+import { QueryClient } from 'src/@services';
 
 const Providers: React.FC = ({ children }: React.PropsWithChildren<{}>) => (
-	<MemoryRouter>{children}</MemoryRouter>
+	<QueryClientProvider client={QueryClient}>
+		<MemoryRouter>{children}</MemoryRouter>
+	</QueryClientProvider>
 );
 
 const customRender = (
