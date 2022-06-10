@@ -11,7 +11,7 @@ interface IItem {
 	};
 }
 
-export const usePokemonTypes = (typeId = '') => {
+export const usePokemonTypes = (typeId: string) => {
 	const { data: results, isFetching } = useQuery<
 		Array<{
 			name: string;
@@ -20,25 +20,17 @@ export const usePokemonTypes = (typeId = '') => {
 	>(
 		[QUERY_DATA.TYPES_POKEMON, typeId],
 		async () => {
-			try {
-				const response = await Api.get(`type/${typeId}`, {
-					params: {
-						limit: 5,
-					},
-				});
+			const response = await Api.get(`type/${typeId}`);
 
-				let data = [];
+			let data = [];
 
-				if (response.data.pokemon) {
-					data = response.data.pokemon
-						.filter((item: IItem) => getPokemonIdByUrl(item.pokemon.url) < 1000)
-						.map((item: IItem) => item.pokemon);
-				}
-
-				return data || [];
-			} catch (error) {
-				console.log(error);
+			if (response.data.pokemon) {
+				data = response.data.pokemon
+					.filter((item: IItem) => getPokemonIdByUrl(item.pokemon.url) < 1000)
+					.map((item: IItem) => item.pokemon);
 			}
+
+			return data;
 		},
 		{
 			staleTime: 100000,

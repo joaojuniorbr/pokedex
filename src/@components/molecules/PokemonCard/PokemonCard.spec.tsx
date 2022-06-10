@@ -2,8 +2,6 @@ import { render, screen } from 'src/@test';
 import { composeStories } from '@storybook/testing-react';
 import * as stories from './PokemonCard.stories';
 
-const mockedUsedNavigate = jest.fn();
-
 jest.mock('src/@hooks', () => ({
 	...jest.requireActual('src/@hooks'),
 	usePokemon: () => ({

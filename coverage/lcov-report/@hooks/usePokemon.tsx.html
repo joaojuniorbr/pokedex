@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,22 +91,22 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,7 +114,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,16 +125,16 @@ import { IPokemon } from 'src/@types/pokemon';
 &nbsp;
 import { Api, QUERY_DATA } from 'src/@services';
 &nbsp;
-export const usePokemon = <span class="fstat-no" title="function not covered" >(p</span>okemonId = <span class="branch-0 cbranch-no" title="branch not covered" >'')</span> =&gt; {
-	const { data: results, isFetching } = <span class="cstat-no" title="statement not covered" >useQuery&lt;IPokemon&gt;(</span>
+export const usePokemon = (pokemonId: string) =&gt; {
+	const { data: results, isFetching } = useQuery&lt;IPokemon&gt;(
 		[QUERY_DATA.POKEMON, pokemonId],
-<span class="fstat-no" title="function not covered" >		async </span>() =&gt; {
-<span class="cstat-no" title="statement not covered" >			try {</span>
-				const response = <span class="cstat-no" title="statement not covered" >await Api.get(`pokemon/${pokemonId}`);</span>
+		async () =&gt; {
+			try {
+				const response = await Api.get(`pokemon/${pokemonId}`);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >				return response.data || null;</span>
+				return response.data;
 			} catch (error) {
-<span class="cstat-no" title="statement not covered" >				console.log(error);</span>
+				return null;
 			}
 		},
 		{
@@ -142,7 +142,7 @@ export const usePokemon = <span class="fstat-no" title="function not covered" >(
 		}
 	);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	return {</span>
+	return {
 		results,
 		isFetching,
 	};
@@ -154,7 +154,7 @@ export const usePokemon = <span class="fstat-no" title="function not covered" >(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jun 09 2022 00:42:09 GMT-0300 (Brasilia Standard Time)
+                at Fri Jun 10 2022 00:57:10 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

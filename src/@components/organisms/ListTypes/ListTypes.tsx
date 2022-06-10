@@ -21,7 +21,7 @@ export const ListTypes = () => {
 
 	return (
 		<Wrapper>
-			{results.map((item) => (
+			{results?.map((item) => (
 				<Item key={item.name}>
 					<Link to={`/tipos/${item.name}`}>
 						<IconType name={item.name} size='lg' />

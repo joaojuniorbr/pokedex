@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Provider } from 'src/@common/ultils';
 
 import { PokemonCard } from './PokemonCard';
 

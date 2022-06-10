@@ -11,17 +11,13 @@ export const useTypes = () => {
 	>(
 		[QUERY_DATA.TYPES],
 		async () => {
-			try {
-				const response = await Api.get('type', {
-					params: {
-						limit: 100,
-					},
-				});
+			const response = await Api.get('type', {
+				params: {
+					limit: 100,
+				},
+			});
 
-				return response.data.results || [];
-			} catch (error) {
-				console.log(error);
-			}
+			return response.data.results;
 		},
 		{
 			staleTime: 100000,
@@ -29,7 +25,7 @@ export const useTypes = () => {
 	);
 
 	return {
-		results: results || [],
+		results: results,
 		isFetching,
 	};
 };
