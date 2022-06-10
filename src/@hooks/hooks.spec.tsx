@@ -32,7 +32,7 @@ describe('Hooks', () => {
 			wrapper: Providers,
 		});
 
-		await act(() => {
+		act(() => {
 			expect(result.current.results).toBe(undefined);
 		});
 	});
