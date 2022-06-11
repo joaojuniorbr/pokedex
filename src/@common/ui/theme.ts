@@ -1,4 +1,5 @@
 import { createStitches } from '@stitches/react';
+import { TTypes } from 'src/@types';
 
 export const { styled, css } = createStitches({
 	theme: {
@@ -10,25 +11,25 @@ export const { styled, css } = createStitches({
 			lightGray: '#e0e0e0',
 			defaultGray: '#f7f7f7',
 
-			typeRock: '#B69E31',
-			typeGhost: '#70559B',
-			typeSteel: '#B7B9D0',
-			typeWater: '#6493EB',
-			typeGrass: '#74CB48',
-			typePsychic: '#FB5584',
-			typeIce: '#9AD6DF',
-			typeDark: '#75574C',
-			typeFairy: '#E69EAC',
-			typeElectric: '#0db5da',
-			typeNormal: '#AAA67F',
-			typeFighting: '#C12239',
-			typeFlying: '#A891EC',
-			typePoison: '#A43E9E',
-			typeGround: '#DEC16B',
-			typeBug: '#A7B723',
-			typeFire: '#F57D31',
 			typeEletric: '#F9CF30',
-			typeDragon: '#7037FF',
+			typeBug: '#A6B91A',
+			typeDark: '#705746',
+			typeDragon: '#6F35FC',
+			typeElectric: '#F7D02C',
+			typeFairy: '#D685AD',
+			typeFighting: '#C22E28',
+			typeFire: '#EE8130',
+			typeFlying: '#A98FF3',
+			typeGhost: '#735797',
+			typeGrass: '#7AC74C',
+			typeGround: '#E2BF65',
+			typeIce: '#96D9D6',
+			typeNormal: '#A8A77A',
+			typePoison: '#A33EA1',
+			typePsychic: '#F95587',
+			typeRock: '#B6A136',
+			typeSteel: '#B7B7CE',
+			typeWater: '#6390F0',
 		},
 		space: {
 			1: '2px',
@@ -86,10 +87,11 @@ export const { styled, css } = createStitches({
 		borderWidths: {},
 		borderStyles: {},
 		radii: {
-			sm: 4,
-			default: 8,
-			md: 12,
-			lg: 16,
+			sm: '4px',
+			default: '8px',
+			md: '12px',
+			lg: '16px',
+			xl: '24px',
 			pill: '100%',
 		},
 		shadows: {},
@@ -97,3 +99,30 @@ export const { styled, css } = createStitches({
 		transitions: {},
 	},
 });
+
+export const typeColor = (type: TTypes): string => {
+	const allTypes = {
+		bug: '$typeBug',
+		dark: '$typeDark',
+		dragon: '$typeDragon',
+		electric: '$typeElectric',
+		fairy: '$typeFairy',
+		fighting: '$typeFighting',
+		fire: '$typeFire',
+		flying: '$typeFlying',
+		ghost: '$typeGhost',
+		grass: '$typeGrass',
+		ground: '$typeGround',
+		ice: '$typeIce',
+		normal: '$typeNormal',
+		poison: '$typePoison',
+		psychic: '$typePsychic',
+		rock: '$typeRock',
+		steel: '$typeSteel',
+		water: '$typeWater',
+		unknown: '$typeNormal',
+		shadow: '$typeNormal',
+	};
+
+	return allTypes[type];
+};

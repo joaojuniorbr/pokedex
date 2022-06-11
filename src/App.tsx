@@ -4,7 +4,7 @@ import { styled } from '@stitches/react';
 
 import { globalStyles } from './@common/ui';
 
-import { Dashboard, PokemonByTypes, Types } from './@pages';
+import { Dashboard, PokemonByTypes, Types, Pokemon } from './@pages';
 
 const Layout = styled('main', {
 	background: '$light',
@@ -25,6 +25,7 @@ function App() {
 					<Route path='/' element={<Dashboard />} />
 					<Route path='/tipos/:type' element={<PokemonByTypes />} />
 					<Route path='/tipos' element={<Types />} />
+					<Route path='/pokemon/:idPokemon' element={<Pokemon />} />
 				</Routes>
 			</BrowserRouter>
 		</Layout>

@@ -29,6 +29,7 @@ const Info = styled('div', {
 		span: {
 			background: '$light',
 			borderRadius: '4px',
+			color: '$dark',
 			display: 'inline-block',
 			fontSize: '$xs',
 			fontWeight: '$semi',
@@ -37,6 +38,7 @@ const Info = styled('div', {
 	},
 
 	h3: {
+		color: '$dark',
 		fontWeight: '$semi',
 		textTransform: 'capitalize',
 		marginBottom: '$3',

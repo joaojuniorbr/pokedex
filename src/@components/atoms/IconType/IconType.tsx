@@ -274,8 +274,8 @@ const Wrapper = styled('div', {
 				borderStyle: 'solid',
 				borderWidth: '1px',
 				height: 24,
-				width: 24,
 				justifyContent: 'center',
+				width: 24,
 
 				span: {
 					display: 'none',
@@ -303,8 +303,189 @@ const Wrapper = styled('div', {
 					},
 				},
 			},
+
+			tag: {
+				borderRadius: '4px',
+				color: '$light',
+				fontWeight: '$regular',
+				padding: '$2',
+				span: {
+					fontSize: '$sm',
+				},
+				em: {
+					width: 18,
+
+					svg: {
+						height: 16,
+
+						path: {
+							fill: '$light',
+						},
+					},
+				},
+			},
+
+			'tag-light': {
+				borderRadius: '4px',
+				background: '$light',
+				fontWeight: '$regular',
+				padding: '$2',
+				span: {
+					fontSize: '$sm',
+				},
+				em: {
+					width: 20,
+
+					svg: {
+						height: 16,
+					},
+				},
+			},
 		},
 	},
+
+	compoundVariants: [
+		{
+			color: 'bug',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeBug',
+			},
+		},
+		{
+			color: 'dark',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeDark',
+			},
+		},
+		{
+			color: 'dragon',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeDragon',
+			},
+		},
+		{
+			color: 'electric',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeElectric',
+			},
+		},
+		{
+			color: 'fairy',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeFairy',
+			},
+		},
+		{
+			color: 'fighting',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeFighting',
+			},
+		},
+		{
+			color: 'fire',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeFire',
+			},
+		},
+		{
+			color: 'flying',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeFlying',
+			},
+		},
+		{
+			color: 'ghost',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeGhost',
+			},
+		},
+		{
+			color: 'grass',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeGrass',
+			},
+		},
+		{
+			color: 'ground',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeGround',
+			},
+		},
+		{
+			color: 'ice',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeIce',
+			},
+		},
+		{
+			color: 'normal',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeNormal',
+			},
+		},
+		{
+			color: 'poison',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typePoison',
+			},
+		},
+		{
+			color: 'psychic',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typePsychic',
+			},
+		},
+		{
+			color: 'rock',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeRock',
+			},
+		},
+		{
+			color: 'steel',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeSteel',
+			},
+		},
+		{
+			color: 'water',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeWater',
+			},
+		},
+		{
+			color: 'unknown',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeUnknown',
+			},
+		},
+		{
+			color: 'shadow',
+			size: 'tag',
+			css: {
+				backgroundColor: '$typeShadow',
+			},
+		},
+	],
 });
 
 export const IconType = ({
@@ -312,7 +493,7 @@ export const IconType = ({
 	size = 'default',
 }: {
 	name: string;
-	size?: 'default' | 'lg' | 'icon' | 'icon-sm';
+	size?: 'default' | 'lg' | 'icon' | 'icon-sm' | 'tag' | 'tag-light';
 }) => (
 	<Wrapper size={size} color={name as TTypes}>
 		<em>{MAIN_ICONS[name as TTypes]}</em>

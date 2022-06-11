@@ -35,6 +35,10 @@ export const globalStyles = globalCss({
 	img: {
 		maxWidth: '100%',
 	},
+
+	svg: {
+		display: 'block',
+	},
 });
 
 export const Container = styled('div', {

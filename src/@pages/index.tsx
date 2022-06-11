@@ -1,3 +1,4 @@
 export * from './Dashboard';
-export * from './Types';
+export * from './Pokemon';
 export * from './PokemonByTypes';
+export * from './Types';

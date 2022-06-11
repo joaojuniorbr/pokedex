@@ -1,8 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+import { usePokemonTypes } from 'src/@hooks';
+
 import { Container, styled } from 'src/@common/ui';
 import { HeaderTitle } from 'src/@components/atoms';
-import { PokemonCard } from 'src/@components/molecules/PokemonCard';
-import { usePokemonTypes } from 'src/@hooks';
+import { PokemonCard } from 'src/@components/molecules';
 
 const Wrapper = styled('div', {
 	padding: '0 0 $5',
@@ -14,14 +16,15 @@ const Header = styled('div', {
 	padding: '$4 0',
 });
 
-const Item = styled('div', {
+const Item = styled(Link, {
+	display: 'block',
 	padding: '$3 0',
 });
 
 export const PokemonByTypes = () => {
 	const { type } = useParams();
 
-	const { results } = usePokemonTypes(type);
+	const { results } = usePokemonTypes(type!);
 
 	return (
 		<Wrapper>
@@ -32,7 +35,7 @@ export const PokemonByTypes = () => {
 			</Header>
 			<Container>
 				{results?.map((item) => (
-					<Item key={item.name}>
+					<Item key={item.name} to={`/pokemon/${item.name}`}>
 						<PokemonCard item={item} />
 					</Item>
 				))}

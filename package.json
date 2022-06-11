@@ -26,7 +26,6 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.18.2",
-		"@openagenda/axios-mock-adapter": "^1.21.2",
 		"@popperjs/core": "^2.11.5",
 		"@storybook/addon-a11y": "^6.5.8",
 		"@storybook/addon-actions": "^6.5.7",
