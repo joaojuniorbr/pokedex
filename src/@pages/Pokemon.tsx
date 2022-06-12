@@ -4,7 +4,11 @@ import { usePokemon } from 'src/@hooks';
 
 import { Container, styled } from 'src/@common/ui';
 
-import { PokemonHeader } from 'src/@components/molecules';
+import {
+	PokemonAbout,
+	PokemonHeader,
+	PokemonStats,
+} from 'src/@components/molecules';
 import { useState } from 'react';
 
 const Wrapper = styled('div', {
@@ -16,6 +20,7 @@ const Content = styled(Container, {
 	background: '$light',
 	borderTopLeftRadius: '$lg',
 	borderTopRightRadius: '$lg',
+	boxShadow: '0 -4px 4px rgba(0, 0, 0, 0.08)',
 	marginTop: '-$4',
 	paddingBottom: '$5',
 	paddingTop: '$5',
@@ -32,6 +37,10 @@ export const Pokemon = () => {
 
 	const onSelectTab = (slug: string) => setSelect(slug);
 
+	if (!results) {
+		return null;
+	}
+
 	return (
 		<Wrapper>
 			<PokemonHeader
@@ -40,7 +49,11 @@ export const Pokemon = () => {
 				onNavigation={onSelectTab}
 			/>
 
-			<Content>test</Content>
+			<Content>
+				{selected === 'about' && <PokemonAbout pokemon={results!} />}
+
+				{selected === 'stats' && <PokemonStats pokemon={results!} />}
+			</Content>
 		</Wrapper>
 	);
 };

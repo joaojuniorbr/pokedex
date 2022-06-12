@@ -21,7 +21,7 @@ const Type = styled('div', {
 	},
 });
 
-export const Typography: React.FC = ({
+export const Typography = ({
 	name,
 	children,
 }: React.PropsWithChildren<{ name?: TTypography }>) => (

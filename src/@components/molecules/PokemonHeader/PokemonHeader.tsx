@@ -14,7 +14,7 @@ const Wrapper = styled('section', {
 	background: '$mediumGray',
 	position: 'relative',
 	overflow: 'hidden',
-	height: 260,
+	height: 240,
 });
 
 const Background = styled('span', {
@@ -163,17 +163,17 @@ const PokeballBg = styled(Pokeball, {
 });
 
 const Navigation = styled('nav', {
-	display: 'flex',
 	alignItems: 'center',
+	display: 'flex',
 	justifyContent: 'space-between',
 });
 
 const NavigationItem = styled('button', {
-	color: '$light',
-	fontWeight: '$regular',
-	fontSize: '$default',
 	background: 'transparent',
 	border: 'none',
+	color: '$light',
+	fontSize: '$default',
+	fontWeight: '$regular',
 	opacity: 0.5,
 	transition: 'all 0.5s ease-in-out',
 
