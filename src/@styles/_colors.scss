@@ -1,0 +1,85 @@
+$primary: #dc0a2d;
+$grayscaleDark: #1d1d1d;
+$grayscaleMedium: #666666;
+$grayscaleLight: #e0e0e0;
+$grayscaleBackground: #efefef;
+$grayscaleWhite: #ffffff;
+$pokMonTypeBug: #a7b723;
+$pokMonTypeDark: #75574c;
+$pokMonTypeDragon: #7037ff;
+$pokMonTypeElectric: #f9cf30;
+$pokMonTypeFairy: #e69eac;
+$pokMonTypeFighting: #c12239;
+$pokMonTypeFire: #f57d31;
+$pokMonTypeFlying: #a891ec;
+$pokMonTypeGhost: #70559b;
+$pokMonTypeGrass: #74cb48;
+$pokMonTypeGround: #dec16b;
+$pokMonTypeIce: #9ad6df;
+$pokMonTypeNormal: #aaa67f;
+$pokMonTypePoison: #a43e9e;
+$pokMonTypePsychic: #fb5584;
+$pokMonTypeRock: #b69e31;
+$pokMonTypeSteel: #b7b9d0;
+$pokMonTypeWater: #6493eb;
+
+$colors: (
+	primary: $primary,
+	grayscaleDark: $grayscaleDark,
+	grayscaleMedium: $grayscaleMedium,
+	grayscaleLight: $grayscaleLight,
+	grayscaleBackground: $grayscaleBackground,
+	grayscaleWhite: $grayscaleWhite,
+	bug: $pokMonTypeBug,
+	dark: $pokMonTypeDark,
+	dragon: $pokMonTypeDragon,
+	electric: $pokMonTypeElectric,
+	fairy: $pokMonTypeFairy,
+	fighting: $pokMonTypeFighting,
+	fire: $pokMonTypeFire,
+	flying: $pokMonTypeFlying,
+	ghost: $pokMonTypeGhost,
+	grass: $pokMonTypeGrass,
+	ground: $pokMonTypeGround,
+	ice: $pokMonTypeIce,
+	normal: $pokMonTypeNormal,
+	poison: $pokMonTypePoison,
+	psychic: $pokMonTypePsychic,
+	rock: $pokMonTypeRock,
+	steel: $pokMonTypeSteel,
+	water: $pokMonTypeWater,
+);
+
+@function color($key) {
+	@return map-get($colors, $key);
+}
+
+@each $key, $value in $colors {
+	.color-#{$key} {
+		color: $value;
+		svg {
+			fill: $value;
+		}
+		path {
+			fill: $value;
+		}
+	}
+}
+
+@each $key, $value in $colors {
+	.bg-#{$key} {
+		background-color: $value;
+	}
+}
+
+@each $key, $value in $colors {
+	.border-#{$key} {
+		border-color: $value;
+	}
+}
+
+@each $key, $value in $colors {
+	:root {
+		--#{$key}: #{$value};
+	}
+}
