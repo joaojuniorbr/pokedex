@@ -4,6 +4,7 @@ import { formatPokemonName, formatPokemonNumber } from '@common';
 import { usePokemon } from '@hooks';
 import { TypeNames } from '@assets/types';
 import { IconType } from '../atoms';
+import { Link } from 'react-router-dom';
 
 interface PokemonItemListProps {
 	name: string;
@@ -17,20 +18,22 @@ export const PokemonItemList = ({ name }: PokemonItemListProps) => {
 	}
 
 	return (
-		<div className='border-slate-300 border rounded-md bg-gradient-to-b from-slate-100 to-white relative shadow-md'>
+		<div className='border-slate-300 border rounded-md bg-gradient-to-b from-slate-100 to-white relative shadow-md transition-all hover:translate-y-[-5px]'>
 			<span className='absolute top-2 right-2 text-xs font-bold block text-slate-400'>
 				{formatPokemonNumber(parseInt(data?.id.toString()))}
 			</span>
-			<figure className='p-3 w-full aspect-square flex justify-center items-center'>
-				<Image
-					src={data?.sprites.other?.['official-artwork'].front_default}
-					alt={name}
-					loading='lazy'
-					placeholder={<Spin spinning size='large' />}
-					fallback='/pokeball-red.svg'
-					preview={false}
-				/>
-			</figure>
+			<Link to={`/pokemon/${name}`}>
+				<figure className='p-3 w-full aspect-square flex justify-center items-center'>
+					<Image
+						src={data?.sprites.other?.['official-artwork'].front_default}
+						alt={name}
+						loading='lazy'
+						placeholder={<Spin spinning size='large' />}
+						fallback='/pokeball-red.svg'
+						preview={false}
+					/>
+				</figure>
+			</Link>
 			<h3 className='text-center m-0 py-3 px-2 font-semibold border-t border-slate-300 truncate'>
 				{formatPokemonName(name)}
 			</h3>

@@ -1,10 +1,12 @@
-import { HomePage } from './@pages';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage, PokemonPage } from './@pages';
 
 function App() {
 	return (
-		<main>
-			<HomePage />
-		</main>
+		<Routes>
+			<Route path='/' element={<HomePage />} />
+			<Route path='/pokemon/:idPokemon' element={<PokemonPage />} />
+		</Routes>
 	);
 }
 
