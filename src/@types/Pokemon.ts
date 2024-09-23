@@ -168,13 +168,13 @@ interface OfficialArtwork {
 	front_default: string;
 }
 
-interface Stat {
+export interface Stat {
 	base_stat: number;
 	effort: number;
 	stat: Species;
 }
 
-interface Type {
+export interface Type {
 	slot: number;
 	type: Species;
 }

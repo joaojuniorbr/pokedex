@@ -55,6 +55,14 @@ $colors: (
 }
 
 @each $key, $value in $colors {
+	.from-#{$key} {
+		--tw-gradient-from: #{$value} var(--tw-gradient-from-position);
+	}
+
+	.to-#{$key} {
+		--tw-gradient-to: #{$value} var(--tw-gradient-from-position);
+	}
+
 	.color-#{$key} {
 		color: $value;
 		svg {
@@ -64,21 +72,15 @@ $colors: (
 			fill: $value;
 		}
 	}
-}
 
-@each $key, $value in $colors {
 	.bg-#{$key} {
 		background-color: $value;
 	}
-}
 
-@each $key, $value in $colors {
 	.border-#{$key} {
 		border-color: $value;
 	}
-}
 
-@each $key, $value in $colors {
 	:root {
 		--#{$key}: #{$value};
 	}

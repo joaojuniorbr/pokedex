@@ -17,7 +17,7 @@ const HeaderContainer = (props: PokemonSingleHeaderProps) => (
 				</Link>
 			</div>
 			<div className='col'>
-				<h1 className='m-0 uppercase text-xl font-bold'>
+				<h1 className='m-0 uppercase text-xl font-bold truncate'>
 					{formatPokemonName(props.name)}
 				</h1>
 			</div>
@@ -34,7 +34,7 @@ const HeaderContainer = (props: PokemonSingleHeaderProps) => (
 
 export const PokemonSingleHeader = (props: PokemonSingleHeaderProps) => {
 	return (
-		<header className={`bg-${props.type} text-white py-3`}>
+		<header className={`bg-${props.type} text-white pt-4`}>
 			<HeaderContainer {...props} />
 		</header>
 	);
