@@ -34,23 +34,27 @@ interface PokemonStatsProps {
 
 export const PokemonStats = (props: PokemonStatsProps) => (
 	<div className='container'>
-		<table className='w-full'>
-			{statsPercent(props.stats).map((stat) => (
-				<tr key={stat.name}>
-					<td className='w-auto py-1 whitespace-nowrap'>
-						{NAME_STATS[stat.name as keyof typeof NAME_STATS]}
-					</td>
-					<td className='w-auto px-4 font-bold'>{stat.base_stat}</td>
-					<td className='w-full'>
-						<div className='w-full bg-gray-200 rounded-full h-3'>
-							<div
-								className={`bg-${props.type} h-3 rounded-full`}
-								style={{ width: `${stat.percentage}%` }}
-							></div>
-						</div>
-					</td>
-				</tr>
-			))}
-		</table>
+		<div className='row justify-center'>
+			<div className='col-md-6'>
+				<table className='w-full'>
+					{statsPercent(props.stats).map((stat) => (
+						<tr key={stat.name}>
+							<td className='w-auto py-1 whitespace-nowrap'>
+								{NAME_STATS[stat.name as keyof typeof NAME_STATS]}
+							</td>
+							<td className='w-auto px-4 font-bold'>{stat.base_stat}</td>
+							<td className='w-full'>
+								<div className='w-full bg-gray-200 rounded-full h-3'>
+									<div
+										className={`bg-${props.type} h-3 rounded-full`}
+										style={{ width: `${stat.percentage}%` }}
+									></div>
+								</div>
+							</td>
+						</tr>
+					))}
+				</table>
+			</div>
+		</div>
 	</div>
 );

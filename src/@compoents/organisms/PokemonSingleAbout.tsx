@@ -13,7 +13,7 @@ export const PokemonSingleAbout = ({ pokemon }: { pokemon: Pokemon }) => {
 	return (
 		<div className='container'>
 			<div className='row justify-center'>
-				<div className='col-md-6 col-lg-6'>
+				<div className='col-md-6'>
 					<div className='mb-4 text-base text-center leading-relaxed'>
 						{getFlavorText(species)}
 					</div>
