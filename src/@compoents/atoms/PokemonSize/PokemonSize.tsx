@@ -9,7 +9,7 @@ export const PokemonSize = (props: PokemonSizeProps) => (
 		<div className='row align-items-center g-3'>
 			<div className='col-6'>
 				<span className='text-5xl block text-right'>
-					<i className={props.icon} />
+					<i className={props.icon} role='presentation' />
 				</span>
 			</div>
 			<div className='col-6'>
