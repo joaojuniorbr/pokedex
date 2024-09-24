@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 
 import { useTypes } from '@hooks';
 import { TypeNames } from '@assets/types';
-import { IconType } from '../atoms';
+import { IconType } from '../../atoms';
 
 export const FilterSearch = ({
 	value,

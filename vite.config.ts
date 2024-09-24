@@ -12,7 +12,7 @@ export default defineConfig({
 			provider: 'istanbul',
 			include: ['src/**/*.{js,ts,jsx,tsx}'],
 			exclude: ['src/index.ts', 'src/setupTests.ts', 'coverage/**/*'],
-			reporter: ['json', 'html', 'lcov'],
+			reporter: ['cobertura', 'html', 'lcov'],
 		},
 		setupFiles: './src/setupTests.ts',
 	},

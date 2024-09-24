@@ -22,9 +22,10 @@ const statsPercent = (stats: Stat[]) =>
 	stats.map((stat) => ({
 		name: stat.stat.name,
 		base_stat: stat.base_stat,
-		percentage:
+		percentage: (
 			(stat.base_stat / MAX_STATS[stat.stat.name as keyof typeof MAX_STATS]) *
-			100,
+			100
+		).toFixed(2),
 	}));
 
 interface PokemonStatsProps {
