@@ -2,10 +2,11 @@ version = 1
 
 [[analyzers]]
 name = "javascript"
-
   [analyzers.meta]
   plugins = ["react"]
   environment = ["vitest"]
 
+[[analyzers]]
+name = "test-coverage"
   [analyzers.test]
-  path = "./coverage/lcov.info" 
+  path = "./coverage/lcov.info"
