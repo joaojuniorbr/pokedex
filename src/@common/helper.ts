@@ -9,20 +9,24 @@ const formatPokemonName = (name: string): string =>
 		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join(' ');
 
-const getFlavorText = (speciesData: Species) => {
-	const portugueseEntry = speciesData.flavor_text_entries.find(
+const getFlavorText = (species_data: Species) => {
+	const portuguese_entry = species_data.flavor_text_entries.find(
 		(entry) => entry.language.name === 'pt-BR'
 	);
 
-	const englishEntry = speciesData.flavor_text_entries.find(
+	const english_entry = species_data.flavor_text_entries.find(
 		(entry) => entry.language.name === 'en'
 	);
 
-	return portugueseEntry
-		? portugueseEntry.flavor_text
-		: englishEntry
-		? englishEntry.flavor_text
-		: 'Texto não disponível';
+	if (portuguese_entry) {
+		return portuguese_entry.flavor_text;
+	}
+
+	if (english_entry) {
+		return english_entry.flavor_text;
+	}
+
+	return 'Texto não disponível';
 };
 
 export { formatPokemonName, formatPokemonNumber, getFlavorText };
