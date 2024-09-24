@@ -11,8 +11,8 @@ export default defineConfig({
 		coverage: {
 			provider: 'istanbul',
 			include: ['src/**/*.{js,ts,jsx,tsx}'],
-			exclude: ['src/index.ts'],
-			reporter: ['text', 'json', 'html'],
+			exclude: ['src/index.ts', 'src/setupTests.ts', 'coverage/**/*'],
+			reporter: ['json', 'html', 'lcov'],
 		},
 		setupFiles: './src/setupTests.ts',
 	},
