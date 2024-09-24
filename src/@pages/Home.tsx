@@ -87,7 +87,7 @@ export const HomePage = () => {
 							align='center'
 							current={currentPage}
 							pageSize={ITEMS_PER_PAGE}
-							total={filteredPokemons?.length || 0}
+							total={filteredPokemons?.length}
 							onChange={handlePageChange}
 							showSizeChanger={false}
 							hideOnSinglePage
