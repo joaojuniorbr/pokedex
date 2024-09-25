@@ -55,25 +55,8 @@ interface VersionGroupDetail {
 	version_group: Species;
 }
 
-interface GenerationV {
-	'black-white': Sprites;
-}
-
-interface GenerationIv {
-	'diamond-pearl': Sprites;
-	'heartgold-soulsilver': Sprites;
-	platinum: Sprites;
-}
-
 interface Versions {
 	'generation-i': GenerationI;
-	'generation-ii': GenerationIi;
-	'generation-iii': GenerationIii;
-	'generation-iv': GenerationIv;
-	'generation-v': GenerationV;
-	'generation-vi': { [key: string]: Home };
-	'generation-vii': GenerationVii;
-	'generation-viii': GenerationViii;
 }
 
 interface Sprites {
@@ -104,39 +87,6 @@ interface RedBlue {
 	front_transparent: string;
 }
 
-interface GenerationIi {
-	crystal: Crystal;
-	gold: Gold;
-	silver: Gold;
-}
-
-interface Crystal {
-	back_default: string;
-	back_shiny: string;
-	back_transparent: string;
-	front_default: string;
-	front_shiny: string;
-	front_transparent: string;
-}
-
-interface Gold {
-	back_default: string;
-	back_shiny: string;
-	front_default: string;
-	front_shiny: string;
-}
-
-interface GenerationIii {
-	emerald: Emerald;
-	'firered-leafgreen': Gold;
-	'ruby-sapphire': Gold;
-}
-
-interface Emerald {
-	front_default: string;
-	front_shiny: string;
-}
-
 interface Home {
 	front_default: string;
 	front_female: null;
@@ -144,18 +94,9 @@ interface Home {
 	front_shiny_female: null;
 }
 
-interface GenerationVii {
-	icons: DreamWorld;
-	'ultra-sun-ultra-moon': Home;
-}
-
 interface DreamWorld {
 	front_default: string;
 	front_female: null | string;
-}
-
-interface GenerationViii {
-	icons: DreamWorld;
 }
 
 interface Other {
