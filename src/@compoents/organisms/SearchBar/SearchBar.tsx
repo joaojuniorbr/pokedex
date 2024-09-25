@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react';
 import { Button, Input, Modal } from 'antd';
 import { FilterFilled } from '@ant-design/icons';
 
-import { IconType } from '../atoms';
-import { FilterSearch } from '../molecules';
+import { IconType } from '../../atoms';
+import { FilterSearch } from '../../molecules';
 
 interface SearchBarProps {
 	onSearch?: (value: string) => void;
@@ -44,13 +44,19 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 		<>
 			<div className='row g-3'>
 				<div className='col'>
-					<Input placeholder='Pesquisar' size='large' onChange={handleSearch} />
+					<Input
+						placeholder='Pesquisar'
+						size='large'
+						onChange={handleSearch}
+						data-testid='filter-input'
+					/>
 				</div>
 				{filter && (
 					<div className='col-auto'>
 						<button
 							onClick={handleClearFilter}
 							className={`flex items-center w-10 h-10 p-[10px] rounded-full color-${filter} bg-white`}
+							data-testid='filter-clear-button'
 						>
 							<IconType name={filter} />
 						</button>
@@ -65,7 +71,12 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 				</div>
 			</div>
 
-			<Modal open={showFilter} onCancel={handleToggleFilter} footer={null}>
+			<Modal
+				open={showFilter}
+				onCancel={handleToggleFilter}
+				footer={null}
+				destroyOnClose
+			>
 				<FilterSearch value={filter} onChange={handleFilterChange} />
 			</Modal>
 		</>

@@ -12,7 +12,7 @@ describe('PokemonSize', () => {
 
 		render(<PokemonSize {...props} />);
 
-		const iconElement = screen.getByRole('presentation');
+		const iconElement = screen.getByTestId(props.icon);
 		expect(iconElement).toHaveClass(props.icon);
 
 		const valueElement = screen.getByText(props.value);

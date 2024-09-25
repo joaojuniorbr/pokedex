@@ -1,9 +1,7 @@
-// FilterSearch.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { FilterSearch } from './FilterSearch';
 
-// Mock da hook useTypes
 vi.mock('@hooks', () => ({
 	useTypes: () => ({
 		data: {

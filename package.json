@@ -8,7 +8,9 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"test": "vitest"
+		"test": "vitest",
+		"coverage": "vitest --coverage --ui",
+		"deepsource": "deepsource report --analyzer test-coverage --key javascript --value-file ./coverage/lcov.info"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.56.2",

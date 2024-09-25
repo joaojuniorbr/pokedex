@@ -28,7 +28,9 @@
 			"@hooks/*": ["./@hooks/*"],
 			"@styles/*": ["./@styles/*"],
 			"@types/*": ["./@types/*"]
-		}
+		},
+
+		"types": ["vitest", "./src/global.d.ts"]
 	},
 	"include": ["src"]
 }

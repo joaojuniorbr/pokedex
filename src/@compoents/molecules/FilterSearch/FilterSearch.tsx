@@ -23,7 +23,7 @@ export const FilterSearch = ({
 	);
 
 	return (
-		<div className='py-3'>
+		<div className='py-3' data-testid='filter-search'>
 			<Typography.Title level={5} className='mb-3'>
 				Filtrar por tipo:
 			</Typography.Title>
@@ -41,6 +41,7 @@ export const FilterSearch = ({
 							}`}
 							onClick={handleClick(type.name)}
 							type='button'
+							data-testid={`filter-search--button--${type.name}`}
 						>
 							<span className='mr-2 w-4'>
 								<IconType name={type.name} />

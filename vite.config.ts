@@ -11,9 +11,16 @@ export default defineConfig({
 		coverage: {
 			provider: 'istanbul',
 			include: ['src/**/*.{js,ts,jsx,tsx}'],
-			exclude: ['src/index.ts', 'src/setupTests.ts', 'coverage/**/*'],
+			exclude: [
+				'src/index.ts',
+				'src/setupTests.tsx',
+				'src/main.tsx',
+				'src/RootComponent.tsx',
+				'src/App.tsx',
+				'coverage/**/*',
+			],
 			reporter: ['cobertura', 'html', 'lcov'],
 		},
-		setupFiles: './src/setupTests.ts',
+		setupFiles: './src/setupTests.tsx',
 	},
 });

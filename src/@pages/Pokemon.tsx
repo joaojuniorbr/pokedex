@@ -61,7 +61,15 @@ export const PokemonPage = () => {
 						{
 							label: 'Estatísticas',
 							key: 'stats',
-							children: <PokemonStats stats={pokemon.stats} type={mainType} />,
+							children: (
+								<div className='container'>
+									<div className='row justify-center'>
+										<div className='col-md-6'>
+											<PokemonStats stats={pokemon.stats} type={mainType} />
+										</div>
+									</div>
+								</div>
+							),
 						},
 					]}
 				/>
