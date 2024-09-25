@@ -24,11 +24,7 @@ const getPokemonsByType = (type: string) =>
 export const useSearch = (type?: string) => {
 	return useQuery<PokemonResult[]>({
 		queryKey: ['porkemon-list'],
-		queryFn: () => {
-			if (type) return getPokemonsByType(type);
-
-			return getAllPokemons();
-		},
+		queryFn: () => (type ? getPokemonsByType(type) : getAllPokemons()),
 		staleTime: Infinity,
 	});
 };

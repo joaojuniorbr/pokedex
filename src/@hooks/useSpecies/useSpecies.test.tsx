@@ -1,10 +1,9 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useSpecies } from './useSpecies';
-import { api } from '@common';
-
-import { renderHook, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 import { MockSpecies } from 'mocks';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { api } from '@common';
+import { describe, expect, it, vi } from 'vitest';
+import { renderHook, waitFor } from '@testing-library/react';
+import { useSpecies } from './useSpecies';
 
 vi.mock('@common/api');
 
