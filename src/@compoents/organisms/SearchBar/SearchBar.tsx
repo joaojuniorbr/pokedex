@@ -67,6 +67,7 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 						size='large'
 						icon={<FilterFilled style={{ color: 'var(--primary)' }} />}
 						onClick={handleToggleFilter}
+						data-testid='filter-button'
 					/>
 				</div>
 			</div>

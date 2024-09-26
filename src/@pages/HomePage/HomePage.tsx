@@ -59,8 +59,11 @@ export const HomePage = () => {
 
 			<div className='container'>
 				{isLoading ? (
-					<div className='p-10'>
+					<div className='flex flex-col h-dvh justify-center items-center w-full p-10'>
 						<Spin spinning />
+						<div className='uppercase text-lg pt-4 font-bold'>
+							Carregando as informações
+						</div>
 					</div>
 				) : (
 					<div className='py-3'>
@@ -70,6 +73,7 @@ export const HomePage = () => {
 									<div
 										data-aos='zoom-in'
 										data-aos-delay={50 * index}
+										data-testid={`pokemon-${item.name}`}
 										className='col-6 col-md-4 col-lg-3 col-xl-2'
 										key={`pokemon-${item.name}`}
 									>

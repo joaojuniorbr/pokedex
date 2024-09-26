@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage, PokemonPage } from './@pages';
+import { HomePage, PokemonPage } from '@pages';
 
 function App() {
 	return (

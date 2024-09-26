@@ -25,11 +25,22 @@ export const PokemonPage = () => {
 
 	const { data: pokemon, isLoading } = usePokemon(idPokemon as string);
 
+	if (isLoading) {
+		return (
+			<div className='flex flex-col h-dvh justify-center items-center w-full p-10'>
+				<Spin spinning />
+				<div className='uppercase text-lg pt-4 font-bold'>
+					Carregando as informações
+				</div>
+			</div>
+		);
+	}
+
 	if (!pokemon) {
 		return <Empty />;
 	}
 
-	const mainType = pokemon.types[0].type.name as TypeNames;
+	const mainType = pokemon?.types[0].type.name as TypeNames;
 
 	const imageUrl = (id: number) =>
 		`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
@@ -37,9 +48,9 @@ export const PokemonPage = () => {
 	return (
 		<Spin spinning={isLoading}>
 			<PokemonHeader
-				name={pokemon.name}
+				name={pokemon.name as string}
 				type={mainType}
-				id={formatPokemonNumber(pokemon.id)}
+				id={formatPokemonNumber(pokemon.id as number)}
 			/>
 
 			<section
