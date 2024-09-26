@@ -22,7 +22,7 @@ describe('PokemonItemList', () => {
 		vi.clearAllMocks();
 	});
 
-	it.only('should return null when no data is available', () => {
+	it('should return null when no data is available', () => {
 		(usePokemon as Mock).mockReturnValue({ data: null });
 		const { container } = render(
 			<Router>
@@ -33,7 +33,7 @@ describe('PokemonItemList', () => {
 		expect(container.firstChild).toBeNull();
 	});
 
-	it.only('should render PokemonItemList correctly when data is available', async () => {
+	it('should render PokemonItemList correctly when data is available', async () => {
 		const mockPokemonData = {
 			id: 1,
 			sprites: {
