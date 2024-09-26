@@ -5,6 +5,7 @@ import { RootComponent } from './RootComponent';
 import 'antd/dist/reset.css';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import 'remixicon/fonts/remixicon.css';
+import 'aos/dist/aos.css';
 
 import './@styles/main.scss';
 

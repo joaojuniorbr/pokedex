@@ -1,6 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Pagination, Spin, Typography } from 'antd';
+import AOS from 'aos';
 
 import { useSearch } from '@hooks';
 import { PokemonItemList } from '@compoents/molecules';
@@ -44,6 +45,10 @@ export const HomePage = () => {
 		[setCurrentPage, setType, refetch]
 	);
 
+	useEffect(() => {
+		AOS.init({ duration: 500 });
+	}, []);
+
 	return (
 		<main>
 			<div className='p-3 bg-primary'>
@@ -61,8 +66,10 @@ export const HomePage = () => {
 					<div className='py-3'>
 						{paginatedPokemons?.length ? (
 							<div className='row g-3'>
-								{paginatedPokemons?.map((item) => (
+								{paginatedPokemons?.map((item, index) => (
 									<div
+										data-aos='zoom-in'
+										data-aos-delay={50 * index}
 										className='col-6 col-md-4 col-lg-3 col-xl-2'
 										key={`pokemon-${item.name}`}
 									>
