@@ -1,12 +1,16 @@
 import { useParams } from 'react-router-dom';
 
 import { usePokemon } from '@hooks';
-import { PokemonSingleHeader } from '@compoents/atoms';
+import { PokemonHeader } from '@compoents/atoms';
 import { formatPokemonNumber } from '@common/helper';
-import { Image, Spin, Tabs } from 'antd';
+import { Empty, Image, Spin, Tabs } from 'antd';
 import { TypeNames } from '@assets/types';
-import { PokemonSingleTypes, PokemonStats } from '@compoents/molecules';
-import { PokemonSingleAbout } from '@compoents/organisms';
+import {
+	PokemonTypes,
+	PokemonStats,
+	PokemonWeaknesses,
+} from '@compoents/molecules';
+import { PokemonAbout } from '@compoents/organisms';
 
 export const PokemonPage = () => {
 	const { idPokemon } = useParams();
@@ -14,7 +18,7 @@ export const PokemonPage = () => {
 	const { data: pokemon, isLoading } = usePokemon(idPokemon as string);
 
 	if (!pokemon) {
-		return <div>Loading...</div>;
+		return <Empty />;
 	}
 
 	const mainType = pokemon.types[0].type.name as TypeNames;
@@ -24,7 +28,7 @@ export const PokemonPage = () => {
 
 	return (
 		<Spin spinning={isLoading}>
-			<PokemonSingleHeader
+			<PokemonHeader
 				name={pokemon.name}
 				type={mainType}
 				id={formatPokemonNumber(pokemon.id)}
@@ -45,7 +49,7 @@ export const PokemonPage = () => {
 
 			<section className='pt-3 mb-4'>
 				<div className='container'>
-					<PokemonSingleTypes types={pokemon.types} />
+					<PokemonTypes types={pokemon.types} />
 				</div>
 			</section>
 
@@ -56,7 +60,7 @@ export const PokemonPage = () => {
 						{
 							label: 'Sobre',
 							key: 'about',
-							children: <PokemonSingleAbout pokemon={pokemon} />,
+							children: <PokemonAbout pokemon={pokemon} />,
 						},
 						{
 							label: 'Estatísticas',
@@ -69,6 +73,16 @@ export const PokemonPage = () => {
 										</div>
 									</div>
 								</div>
+							),
+						},
+						{
+							label: 'Fraquezas',
+							key: 'weaknesses',
+							children: (
+								<PokemonWeaknesses
+									pokemonId={pokemon.name}
+									types={pokemon.types}
+								/>
 							),
 						},
 					]}

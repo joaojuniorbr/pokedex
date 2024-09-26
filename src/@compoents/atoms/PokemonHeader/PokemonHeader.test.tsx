@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import { PokemonSingleHeader } from './PokemonSingleHeader';
+import { PokemonHeader } from './PokemonHeader';
 
 vi.mock('@common/helper', () => ({
 	formatPokemonName: (name: string) => `Formatted ${name}`,
 }));
 
-describe('PokemonSingleHeader Component', () => {
+describe('PokemonHeader', () => {
 	const props = {
 		name: 'pikachu',
 		type: 'electric',
@@ -17,7 +17,7 @@ describe('PokemonSingleHeader Component', () => {
 	it('should render the back button correctly', () => {
 		render(
 			<MemoryRouter>
-				<PokemonSingleHeader {...props} />
+				<PokemonHeader {...props} />
 			</MemoryRouter>
 		);
 		const backButton = screen.getByTestId('back-button');
@@ -28,7 +28,7 @@ describe('PokemonSingleHeader Component', () => {
 	it('should display formatted pokemon name', () => {
 		render(
 			<MemoryRouter>
-				<PokemonSingleHeader {...props} />
+				<PokemonHeader {...props} />
 			</MemoryRouter>
 		);
 
@@ -40,7 +40,7 @@ describe('PokemonSingleHeader Component', () => {
 	it('should display pokemon id with correct type-based styling', () => {
 		render(
 			<MemoryRouter>
-				<PokemonSingleHeader {...props} />
+				<PokemonHeader {...props} />
 			</MemoryRouter>
 		);
 
@@ -53,7 +53,7 @@ describe('PokemonSingleHeader Component', () => {
 	it('should have the correct background color based on pokemon type', () => {
 		render(
 			<MemoryRouter>
-				<PokemonSingleHeader {...props} />
+				<PokemonHeader {...props} />
 			</MemoryRouter>
 		);
 

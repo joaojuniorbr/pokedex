@@ -3,7 +3,7 @@ import { PokemonInfo } from '@compoents/molecules';
 import { useSpecies } from '@hooks';
 import { Pokemon } from '@types';
 
-export const PokemonSingleAbout = ({ pokemon }: { pokemon: Pokemon }) => {
+export const PokemonAbout = ({ pokemon }: { pokemon: Pokemon }) => {
 	const { data: species } = useSpecies(pokemon.name);
 
 	return (

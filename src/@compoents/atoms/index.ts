@@ -1,3 +1,3 @@
 export * from './IconType';
-export * from './PokemonSingleHeader';
+export * from './PokemonHeader';
 export * from './PokemonSize';

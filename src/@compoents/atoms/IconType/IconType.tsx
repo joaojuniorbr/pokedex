@@ -17,6 +17,7 @@ import {
 	Rock,
 	Steel,
 	Water,
+	TypeNames,
 } from '@assets/types';
 
 const style = {
@@ -47,8 +48,29 @@ const typesIcons = {
 
 interface IconTypeProps {
 	name: string;
+	custom?: {
+		isLabel?: boolean;
+		style?: 'solid' | 'outline';
+	};
 }
 
-export const IconType = ({ name }: IconTypeProps) => {
+export const IconType = ({ name, custom }: IconTypeProps) => {
+	const solidStyle = `bg-${name} text-white`;
+	const outlineStyle = `color-${name}`;
+
+	if (custom?.isLabel) {
+		return (
+			<div
+				className={`${
+					custom.style === 'outline' ? outlineStyle : solidStyle
+				} border-${name} border py-2 px-3 rounded-md flex items-center`}
+			>
+				<span className='w-6 mr-2'>
+					<IconType name={name} />
+				</span>
+				{TypeNames[name as keyof typeof TypeNames]}
+			</div>
+		);
+	}
 	return typesIcons[name as keyof typeof typesIcons];
 };

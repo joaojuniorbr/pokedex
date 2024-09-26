@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { PokemonSingleAbout } from './PokemonSingleAbout';
+import { PokemonAbout } from './PokemonAbout';
 import { describe, expect, it, vi, Mock, beforeEach } from 'vitest';
 import { mockPokemon, MockSpecies } from 'mocks';
 import { useSpecies } from '@hooks';
@@ -8,7 +8,7 @@ vi.mock('@hooks', () => ({
 	useSpecies: vi.fn(),
 }));
 
-describe('PokemonSingleAbout', () => {
+describe('PokemonAbout', () => {
 	beforeEach(() => {
 		(useSpecies as Mock).mockReturnValue({
 			data: MockSpecies,
@@ -16,7 +16,7 @@ describe('PokemonSingleAbout', () => {
 	});
 
 	it('should render species flavor text and Pokemon info', () => {
-		render(<PokemonSingleAbout pokemon={mockPokemon} />);
+		render(<PokemonAbout pokemon={mockPokemon} />);
 
 		expect(
 			screen.getByText(
@@ -32,7 +32,7 @@ describe('PokemonSingleAbout', () => {
 			data: null,
 		});
 
-		render(<PokemonSingleAbout pokemon={mockPokemon} />);
+		render(<PokemonAbout pokemon={mockPokemon} />);
 
 		expect(
 			screen.queryByText(

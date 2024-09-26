@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 import { formatPokemonName } from '@common/helper';
 
-interface PokemonSingleHeaderProps {
+interface PokemonHeaderProps {
 	name: string;
 	type: string;
 	id: string;
 }
 
-const HeaderContainer = (props: PokemonSingleHeaderProps) => (
+const HeaderContainer = (props: PokemonHeaderProps) => (
 	<div className='container'>
 		<div className='row align-items-center g-3'>
 			<div className='col-auto'>
@@ -36,7 +36,7 @@ const HeaderContainer = (props: PokemonSingleHeaderProps) => (
 	</div>
 );
 
-export const PokemonSingleHeader = (props: PokemonSingleHeaderProps) => {
+export const PokemonHeader = (props: PokemonHeaderProps) => {
 	return (
 		<header className={`bg-${props.type} text-white pt-4`}>
 			<HeaderContainer {...props} />
