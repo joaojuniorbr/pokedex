@@ -29,10 +29,6 @@ export const useWeaknesses = (pokemonId: string, types: string[]) =>
 						.get<TypeResponse>(`/type/${type}`)
 						.then((res) => res.data);
 
-					dataResponse.damage_relations.half_damage_from.forEach((value) =>
-						data.push(value)
-					);
-
 					dataResponse.damage_relations.double_damage_from.forEach((value) =>
 						data.push(value)
 					);

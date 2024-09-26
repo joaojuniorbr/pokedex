@@ -7,20 +7,16 @@ export const PokemonAbout = ({ pokemon }: { pokemon: Pokemon }) => {
 	const { data: species } = useSpecies(pokemon.name);
 
 	return (
-		<div className='container'>
-			<div className='row justify-center'>
-				<div className='col-md-6'>
-					{species && (
-						<div
-							className='mb-4 text-base text-center leading-relaxed'
-							data-testid='pokemon-description'
-						>
-							{getFlavorText(species)}
-						</div>
-					)}
-					<PokemonInfo weight={pokemon.weight} height={pokemon.height} />
+		<>
+			{species && (
+				<div
+					className='mb-4 text-base text-center leading-relaxed'
+					data-testid='pokemon-description'
+				>
+					{getFlavorText(species)}
 				</div>
-			</div>
-		</div>
+			)}
+			<PokemonInfo weight={pokemon.weight} height={pokemon.height} />
+		</>
 	);
 };

@@ -10,7 +10,15 @@ import {
 	PokemonStats,
 	PokemonWeaknesses,
 } from '@compoents/molecules';
-import { PokemonAbout } from '@compoents/organisms';
+import { PokemonAbout, PokemonEvolution } from '@compoents/organisms';
+
+const ContainerTabs = ({ children }: { children: React.ReactNode }) => (
+	<div className='container'>
+		<div className='row justify-center'>
+			<div className='col-md-6'>{children}</div>
+		</div>
+	</div>
+);
 
 export const PokemonPage = () => {
 	const { idPokemon } = useParams();
@@ -60,29 +68,40 @@ export const PokemonPage = () => {
 						{
 							label: 'Sobre',
 							key: 'about',
-							children: <PokemonAbout pokemon={pokemon} />,
+							children: (
+								<ContainerTabs>
+									<PokemonAbout pokemon={pokemon} />
+								</ContainerTabs>
+							),
 						},
 						{
 							label: 'Estatísticas',
 							key: 'stats',
 							children: (
-								<div className='container'>
-									<div className='row justify-center'>
-										<div className='col-md-6'>
-											<PokemonStats stats={pokemon.stats} type={mainType} />
-										</div>
-									</div>
-								</div>
+								<ContainerTabs>
+									<PokemonStats stats={pokemon.stats} type={mainType} />
+								</ContainerTabs>
 							),
 						},
 						{
 							label: 'Fraquezas',
 							key: 'weaknesses',
 							children: (
-								<PokemonWeaknesses
-									pokemonId={pokemon.name}
-									types={pokemon.types}
-								/>
+								<ContainerTabs>
+									<PokemonWeaknesses
+										pokemonId={pokemon.name}
+										types={pokemon.types}
+									/>
+								</ContainerTabs>
+							),
+						},
+						{
+							label: 'Evolução',
+							key: 'evolution',
+							children: (
+								<ContainerTabs>
+									<PokemonEvolution pokemonId={pokemon.name} />
+								</ContainerTabs>
 							),
 						},
 					]}

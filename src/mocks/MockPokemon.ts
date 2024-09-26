@@ -1,4 +1,3 @@
-// Função para criar habilidade de Pokémon
 const createAbility = (
 	name: string,
 	url: string,
@@ -10,7 +9,6 @@ const createAbility = (
 	slot,
 });
 
-// Função para criar detalhes de versão do Pokémon
 const createVersionDetails = (
 	game_index: number,
 	version_name: string,
@@ -20,7 +18,6 @@ const createVersionDetails = (
 	version: { name: version_name, url: version_url },
 });
 
-// Função para criar sprites de diferentes versões do Pokémon
 const createSprite = (
 	front_default: string,
 	back_default: string,

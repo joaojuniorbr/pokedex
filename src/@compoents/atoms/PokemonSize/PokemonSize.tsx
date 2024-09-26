@@ -5,14 +5,14 @@ interface PokemonSizeProps {
 }
 
 export const PokemonSize = (props: PokemonSizeProps) => (
-	<div className='bg-slate-100 py-4 rounded-md border border-slate-300'>
-		<div className='row align-items-center g-3'>
-			<div className='col-6'>
+	<div className='bg-slate-100 py-4 px-3 rounded-md border border-slate-300'>
+		<div className='row align-items-center g-2'>
+			<div className='col-auto col-md-6'>
 				<span className='text-5xl block text-right'>
 					<i className={props.icon} data-testid={props.icon} />
 				</span>
 			</div>
-			<div className='col-6'>
+			<div className='col col-md-6'>
 				<span className='text-xl font-bold block leading-normal'>
 					{props.value}
 				</span>

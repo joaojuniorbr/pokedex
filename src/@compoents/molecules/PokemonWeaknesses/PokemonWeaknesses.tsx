@@ -16,21 +16,15 @@ export const PokemonWeaknesses = (props: PokemonWeaknessesProps) => {
 	}
 
 	return (
-		<div className='container'>
-			<div className='row justify-center'>
-				<div className='col-md-6'>
-					<div className='row g-3'>
-						{data?.map((item) => (
-							<div className='col-6 col-lg-4' key={item.url}>
-								<IconType
-									name={item.name}
-									custom={{ isLabel: true, style: 'outline' }}
-								/>
-							</div>
-						))}
-					</div>
+		<div className='row g-3'>
+			{data?.map((item) => (
+				<div className='col-6 col-lg-4' key={item.url}>
+					<IconType
+						name={item.name}
+						custom={{ isLabel: true, style: 'outline' }}
+					/>
 				</div>
-			</div>
+			))}
 		</div>
 	);
 };

@@ -3,8 +3,9 @@ import { Image, Spin, Tooltip } from 'antd';
 import { formatPokemonName, formatPokemonNumber } from '@common';
 import { usePokemon } from '@hooks';
 import { TypeNames } from '@assets/types';
-import { IconType } from '../atoms';
+
 import { Link } from 'react-router-dom';
+import { IconType } from '@compoents/atoms';
 
 interface PokemonItemListProps {
 	name: string;

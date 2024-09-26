@@ -25,9 +25,12 @@ describe('useWeaknesses', () => {
 
 		const mockTypeResponseFire = {
 			damage_relations: {
-				double_damage_from: [{ name: 'rock', url: 'https://example.com/rock' }],
+				double_damage_from: [
+					{ name: 'rock', url: 'https://example.com/rock' },
+					{ name: 'grass', url: 'https://example.com/grass' },
+				],
 				double_damage_to: [],
-				half_damage_from: [{ name: 'grass', url: 'https://example.com/grass' }],
+				half_damage_from: [],
 				half_damage_to: [],
 				no_damage_from: [],
 				no_damage_to: [],
@@ -62,9 +65,8 @@ describe('useWeaknesses', () => {
 		expect(api.get).toHaveBeenCalledWith('/type/water');
 
 		expect(result.current.data).toEqual([
-			{ name: 'grass', url: 'https://example.com/grass' },
 			{ name: 'rock', url: 'https://example.com/rock' },
-			{ name: 'fire', url: 'https://example.com/fire' },
+			{ name: 'grass', url: 'https://example.com/grass' },
 			{ name: 'electric', url: 'https://example.com/electric' },
 		]);
 	});
