@@ -1,3 +1,4 @@
+// Função para criar habilidade de Pokémon
 const createAbility = (
 	name: string,
 	url: string,
@@ -9,6 +10,7 @@ const createAbility = (
 	slot,
 });
 
+// Função para criar detalhes de versão do Pokémon
 const createVersionDetails = (
 	game_index: number,
 	version_name: string,
@@ -18,16 +20,25 @@ const createVersionDetails = (
 	version: { name: version_name, url: version_url },
 });
 
+// Função para criar sprites de diferentes versões do Pokémon
 const createSprite = (
 	front_default: string,
 	back_default: string,
 	front_shiny: string,
-	back_shiny: string
+	back_shiny: string,
+	front_female: string | null,
+	back_female: string | null,
+	front_shiny_female: string | null,
+	back_shiny_female: string | null
 ) => ({
 	front_default,
 	back_default,
 	front_shiny,
 	back_shiny,
+	front_female,
+	back_female,
+	front_shiny_female,
+	back_shiny_female,
 });
 
 export const mockPokemon = {
@@ -140,7 +151,11 @@ export const mockPokemon = {
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png'
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png',
+			null, // front_female
+			null, // back_female
+			null, // front_shiny_female
+			null // back_shiny_female
 		),
 		other: {
 			dream_world: {
