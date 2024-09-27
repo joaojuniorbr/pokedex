@@ -68,7 +68,8 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook -o storybook-static
 
-      - name: Deploy to GitHub Pages
-        run: |
-          npm install -g gh-pages
-          npx gh-pages -d storybook-static -b gh-pages --message "Deploy Storybook" --user "Joao Junior <negrelis@gmail.com>" --repo "https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/joaojuniorbr/pokedex.git"
+      - id: build-publish
+        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          build_command: yarn build-storybook -o storybook-static
+          path: 'storybook-static'
