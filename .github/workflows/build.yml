@@ -66,4 +66,9 @@ jobs:
         run: yarn
 
       - name: Build Storybook
-        run: yarn deploy
+        run: yarn build-storybook -o storybook-static
+
+      - name: Deploy to GitHub Pages
+        run: |
+          npm install -g gh-pages  # Instala a ferramenta gh-pages
+          npx gh-pages -d storybook-static -b gh-pages --message "Deploy Storybook" --user "${{ secrets.GITHUB_TOKEN }}:x-oauth-basic"
