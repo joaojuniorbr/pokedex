@@ -48,9 +48,9 @@ export const PokemonPage = () => {
 	return (
 		<Spin spinning={isLoading}>
 			<PokemonHeader
-				name={pokemon.name as string}
+				name={pokemon.name}
 				type={mainType}
-				id={formatPokemonNumber(pokemon.id as number)}
+				id={formatPokemonNumber(pokemon.id)}
 			/>
 
 			<section

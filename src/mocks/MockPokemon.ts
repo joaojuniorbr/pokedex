@@ -18,24 +18,24 @@ const createVersionDetails = (
 	version: { name: version_name, url: version_url },
 });
 
-const createSprite = (
-	front_default: string,
-	back_default: string,
-	front_shiny: string,
-	back_shiny: string,
-	front_female: string | null,
-	back_female: string | null,
-	front_shiny_female: string | null,
-	back_shiny_female: string | null
-) => ({
-	front_default,
-	back_default,
-	front_shiny,
-	back_shiny,
-	front_female,
-	back_female,
-	front_shiny_female,
-	back_shiny_female,
+const createSprite = (props: {
+	front_default: string;
+	back_default: string;
+	front_shiny: string;
+	back_shiny: string;
+	front_female: string | null;
+	back_female: string | null;
+	front_shiny_female: string | null;
+	back_shiny_female: string | null;
+}) => ({
+	front_default: props.front_default,
+	back_default: props.back_default,
+	front_shiny: props.front_shiny,
+	back_shiny: props.back_shiny,
+	front_female: props.front_female,
+	back_female: props.back_female,
+	front_shiny_female: props.front_shiny_female,
+	back_shiny_female: props.back_shiny_female,
 });
 
 export const mockPokemon = {
@@ -144,16 +144,20 @@ export const mockPokemon = {
 		url: 'https://pokeapi.co/api/v2/pokemon-species/1/',
 	},
 	sprites: {
-		...createSprite(
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png',
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png',
-			null, // front_female
-			null, // back_female
-			null, // front_shiny_female
-			null // back_shiny_female
-		),
+		...createSprite({
+			front_default:
+				'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+			back_default:
+				'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png',
+			front_shiny:
+				'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png',
+			back_shiny:
+				'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/1.png',
+			front_female: null,
+			back_female: null,
+			front_shiny_female: null,
+			back_shiny_female: null,
+		}),
 		other: {
 			dream_world: {
 				front_default:
