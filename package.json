@@ -1,4 +1,5 @@
 {
+	"homepage": "https://joaojuniorbr.github.io/pokedex",
 	"name": "pokedex",
 	"private": true,
 	"version": "0.0.0",
@@ -12,7 +13,9 @@
 		"coverage": "vitest --coverage --ui",
 		"deepsource": "deepsource report --analyzer test-coverage --key javascript --value-file ./coverage/lcov.info",
 		"storybook": "storybook dev -p 6006 --no-open",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"predeploy": "npm run build-storybook -o storybook-static",
+		"deploy": "gh-pages -d storybook-static"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.56.2",
@@ -53,6 +56,7 @@
 		"eslint-plugin-react-hooks": "^5.1.0-rc.0",
 		"eslint-plugin-react-refresh": "^0.4.9",
 		"eslint-plugin-storybook": "^0.9.0",
+		"gh-pages": "^6.1.1",
 		"globals": "^15.9.0",
 		"jsdom": "^25.0.1",
 		"postcss": "^8.4.47",
