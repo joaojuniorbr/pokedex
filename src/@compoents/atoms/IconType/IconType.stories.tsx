@@ -36,8 +36,16 @@ const meta = {
 			description:
 				'Nome do tipo de pokemon, este nome é traduzido para português.',
 		},
-		custom: {
-			control: 'object',
+		isLabel: {
+			control: 'boolean',
+			description:
+				'Estilo customizado, é possivel escolher entre outline e solid e adicionar o nome do tipo ao lado do icone.',
+		},
+		variant: {
+			control: {
+				type: 'radio',
+			},
+			options: ['outline', 'solid'],
 			description:
 				'Estilo customizado, é possivel escolher entre outline e solid e adicionar o nome do tipo ao lado do icone.',
 		},
@@ -50,9 +58,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		name: 'bug',
-		custom: {
-			isLabel: true,
-			style: 'solid',
-		},
+		isLabel: true,
 	},
 };

@@ -9,20 +9,20 @@ describe('IconType Component', () => {
 	});
 
 	it('should render a label when isLabel is true', () => {
-		render(<IconType name='fire' custom={{ isLabel: true }} />);
+		render(<IconType name='fire' isLabel />);
 		expect(screen.getByText('Fogo')).toBeInTheDocument();
 	});
 
 	it('should apply solid style when custom style is solid', () => {
 		const { container } = render(
-			<IconType name='water' custom={{ isLabel: true, style: 'solid' }} />
+			<IconType name='water' isLabel variant='solid' />
 		);
 		expect(container.firstChild).toHaveClass('bg-water');
 	});
 
 	it('should apply outline style when custom style is outline', () => {
 		const { container } = render(
-			<IconType name='water' custom={{ isLabel: true, style: 'outline' }} />
+			<IconType name='water' variant='outline' isLabel />
 		);
 		expect(container.firstChild).toHaveClass('color-water');
 	});

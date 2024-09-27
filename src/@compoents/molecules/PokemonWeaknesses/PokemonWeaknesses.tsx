@@ -19,10 +19,7 @@ export const PokemonWeaknesses = (props: PokemonWeaknessesProps) => {
 		<div className='row g-3'>
 			{data?.map((item) => (
 				<div className='col-6 col-lg-4' key={item.url}>
-					<IconType
-						name={item.name}
-						custom={{ isLabel: true, style: 'outline' }}
-					/>
+					<IconType name={item.name} isLabel variant='outline' />
 				</div>
 			))}
 		</div>

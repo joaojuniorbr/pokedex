@@ -48,21 +48,19 @@ const typesIcons = {
 
 interface IconTypeProps {
 	name: string;
-	custom?: {
-		isLabel?: boolean;
-		style?: 'solid' | 'outline';
-	};
+	isLabel?: boolean;
+	variant?: 'solid' | 'outline';
 }
 
-export const IconType = ({ name, custom }: IconTypeProps) => {
+export const IconType = ({ name, isLabel, variant }: IconTypeProps) => {
 	const solidStyle = `bg-${name} text-white`;
 	const outlineStyle = `color-${name}`;
 
-	if (custom?.isLabel) {
+	if (isLabel) {
 		return (
 			<div
 				className={`${
-					custom.style === 'outline' ? outlineStyle : solidStyle
+					variant === 'outline' ? outlineStyle : solidStyle
 				} border-${name} border py-2 px-3 rounded-md flex items-center`}
 			>
 				<span className='w-6 mr-2'>
