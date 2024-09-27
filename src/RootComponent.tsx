@@ -16,7 +16,7 @@ const AppProviders = ({ children }: { children: React.ReactNode }) => (
 			locale={pt_BR}
 			theme={{
 				token: {
-					colorPrimary: '#dc0a2d',
+					colorPrimary: '#000',
 				},
 			}}
 		>

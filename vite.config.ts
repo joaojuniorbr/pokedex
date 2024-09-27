@@ -19,7 +19,7 @@ export default defineConfig({
 				'src/App.tsx',
 				'coverage/**/*',
 			],
-			reporter: ['cobertura', 'html', 'lcov'],
+			reporter: ['cobertura', 'html', 'lcov', 'json'],
 		},
 		setupFiles: './src/setupTests.tsx',
 	},
