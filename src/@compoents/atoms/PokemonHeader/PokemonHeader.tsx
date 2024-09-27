@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { formatPokemonName } from '@common/helper';
 
-interface PokemonHeaderProps {
+interface PokemonHeaderProps
+	extends React.DetailedHTMLProps<
+		React.HTMLAttributes<HTMLDivElement>,
+		HTMLDivElement
+	> {
 	name: string;
 	type: string;
 	id: string;
@@ -38,7 +42,10 @@ const HeaderContainer = (props: PokemonHeaderProps) => (
 
 export const PokemonHeader = (props: PokemonHeaderProps) => {
 	return (
-		<header className={`bg-${props.type} text-white pt-4`}>
+		<header
+			{...props}
+			className={`bg-${props.type} text-white pt-4 ${props.className}`}
+		>
 			<HeaderContainer {...props} />
 		</header>
 	);
