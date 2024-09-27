@@ -71,4 +71,4 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          npx gh-pages -d storybook-static -b gh-pages --message "Deploy Storybook" --user "Joao Junior <negrelis@gmail.com>" --repo "https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/username/repo.git"
+          npx gh-pages -d storybook-static -b gh-pages --message "Deploy Storybook" --user "Joao Junior <negrelis@gmail.com>" --repo "https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/joaojuniorbr/pokedex.git"
