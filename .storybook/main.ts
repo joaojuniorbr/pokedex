@@ -17,16 +17,8 @@ const config: StorybookConfig = {
 		options: {},
 	},
 	babel: async (options) => {
-		options.presets.push('@babel/preset-react', { runtime: 'automatic' });
+		await options.presets.push('@babel/preset-react', { runtime: 'automatic' });
 		return options;
-	},
-	viteFinal: (config) => {
-		return {
-			...config,
-			esbuild: {
-				jsxInject: `import React from 'react'`,
-			},
-		};
 	},
 };
 export default config;

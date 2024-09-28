@@ -25,7 +25,7 @@ const meta = {
 			control: {
 				type: 'text',
 			},
-			description: 'ID do Pokemin',
+			description: 'ID do Pokemon',
 		},
 	},
 } satisfies Meta<typeof PokemonHeader>;
