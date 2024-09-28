@@ -1,6 +1,7 @@
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import { SearchBar } from './SearchBar';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, Mock } from 'vitest';
+import { useAuth0 } from '@auth0/auth0-react';
 
 vi.mock('@hooks', () => ({
 	useTypes: () => ({
@@ -10,10 +11,31 @@ vi.mock('@hooks', () => ({
 	}),
 }));
 
+vi.mock('@auth0/auth0-react', () => ({
+	useAuth0: vi.fn().mockReturnValue({
+		isAuthenticated: true,
+		user: { name: 'Test User', picture: 'https://example.com/picture.jpg' },
+		logout: vi.fn(),
+	}),
+}));
+
 describe('SearchBar', () => {
 	it('should render the search input', () => {
 		renderWithQueryClient(<SearchBar />);
 		expect(screen.getByPlaceholderText('Pesquisar')).toBeInTheDocument();
+	});
+
+	it('should call logout when logout button is clicked', async () => {
+		const onLogoutMock = vi.fn();
+
+		(useAuth0 as Mock).mockReturnValue({
+			logout: onLogoutMock,
+		});
+
+		renderWithQueryClient(<SearchBar />);
+
+		const logoutButton = screen.getByTestId('logout-button');
+		fireEvent.click(logoutButton);
 	});
 
 	it('should call onSearch when typing in the input', () => {

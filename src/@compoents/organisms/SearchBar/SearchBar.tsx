@@ -80,6 +80,7 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 						<div
 							className='w-10 h-10 overflow-hidden rounded-full'
 							onClick={() => logout()}
+							data-testid='logout-button'
 						>
 							<Image
 								preview={false}

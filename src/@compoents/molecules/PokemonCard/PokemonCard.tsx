@@ -31,6 +31,7 @@ export const PokemonCard = ({
 					<img
 						src={data.sprites.other?.['official-artwork'].front_default}
 						alt={data.name}
+						className='block mx-auto'
 					/>
 				</dt>
 				<dd className='m-0 truncate py-2 text-xs font-bold'>

@@ -18,7 +18,7 @@ export default defineConfig({
 				'src/RootComponent.tsx',
 				'src/App.tsx',
 				'coverage/**/*',
-				'*.stories.tsx',
+				'**/*.stories.tsx',
 			],
 			reporter: ['cobertura', 'html', 'lcov', 'json'],
 		},
