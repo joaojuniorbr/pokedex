@@ -1,6 +1,11 @@
 import { PokemonSize } from '@compoents/atoms';
 
-export const PokemonInfo = (props: { weight: number; height: number }) => (
+interface PokemonInfoProps {
+	weight: number;
+	height: number;
+}
+
+export const PokemonInfo = (props: PokemonInfoProps) => (
 	<div className='row'>
 		<div className='col'>
 			<PokemonSize

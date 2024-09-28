@@ -8,7 +8,6 @@ export const Loading = (
 		{...props}
 		className={`loading-pokemon ${props.className}`}
 		data-testid='loading'
-		role='loading'
 	>
 		<div className='ball'></div>
 		<div className='half-ball'></div>

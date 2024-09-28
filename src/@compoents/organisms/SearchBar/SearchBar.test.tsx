@@ -25,7 +25,7 @@ describe('SearchBar', () => {
 		expect(screen.getByPlaceholderText('Pesquisar')).toBeInTheDocument();
 	});
 
-	it('should call logout when logout button is clicked', async () => {
+	it('should call logout when logout button is clicked', () => {
 		const onLogoutMock = vi.fn();
 
 		(useAuth0 as Mock).mockReturnValue({

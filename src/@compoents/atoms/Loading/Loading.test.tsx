@@ -6,14 +6,14 @@ describe('Loading component', () => {
 	it('should render without crashing', () => {
 		render(<Loading />);
 
-		const loadingElement = screen.getByRole('loading');
+		const loadingElement = screen.getByTestId('loading');
 		expect(loadingElement).toBeInTheDocument();
 	});
 
 	it('should have the correct class name', () => {
 		render(<Loading className='custom-class' />);
 
-		const loadingElement = screen.getByRole('loading');
+		const loadingElement = screen.getByTestId('loading');
 		expect(loadingElement).toHaveClass('loading-pokemon custom-class');
 	});
 });
