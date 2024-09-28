@@ -51,7 +51,7 @@ describe('SearchBar', () => {
 	it('should toggle the filter modal', async () => {
 		renderWithQueryClient(<SearchBar />);
 
-		const filterButton = screen.getByRole('button');
+		const filterButton = screen.getByTestId('filter-button');
 		fireEvent.click(filterButton);
 
 		expect(screen.getByText('Filtrar por tipo:')).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe('SearchBar', () => {
 		const onFilterMock = vi.fn();
 		renderWithQueryClient(<SearchBar onFilter={onFilterMock} />);
 
-		const filterButton = screen.getByRole('button');
+		const filterButton = screen.getByTestId('filter-button');
 		fireEvent.click(filterButton);
 
 		const buttonType = screen.getByTestId('filter-search--button--fire');
