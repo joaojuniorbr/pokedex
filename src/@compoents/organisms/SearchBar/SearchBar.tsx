@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react';
 
-import { Button, Input, Modal } from 'antd';
+import { Button, Image, Input, Modal, Tooltip } from 'antd';
 import { FilterFilled } from '@ant-design/icons';
 
 import { IconType } from '../../atoms';
 import { FilterSearch } from '../../molecules';
+import { useAuth0 } from '@auth0/auth0-react';
 
 interface SearchBarProps {
 	onSearch?: (value: string) => void;
@@ -14,6 +15,8 @@ interface SearchBarProps {
 export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 	const [filter, setFilter] = useState<string>();
 	const [showFilter, setShowFilter] = useState(false);
+
+	const { user, logout } = useAuth0();
 
 	const handleToggleFilter = useCallback(
 		() => setShowFilter(!showFilter),
@@ -62,6 +65,7 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 						</button>
 					</div>
 				)}
+
 				<div className='col-auto'>
 					<Button
 						size='large'
@@ -69,6 +73,22 @@ export const SearchBar = ({ onSearch, onFilter }: SearchBarProps) => {
 						onClick={handleToggleFilter}
 						data-testid='filter-button'
 					/>
+				</div>
+
+				<div className='col-auto'>
+					<Tooltip title={`${user?.name}`}>
+						<div
+							className='w-10 h-10 overflow-hidden rounded-full'
+							onClick={() => logout()}
+						>
+							<Image
+								preview={false}
+								src={user?.picture}
+								alt={user?.name}
+								fallback={`https://robohash.org/${user?.email}`}
+							/>
+						</div>
+					</Tooltip>
 				</div>
 			</div>
 

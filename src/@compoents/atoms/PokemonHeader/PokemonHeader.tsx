@@ -40,13 +40,11 @@ const HeaderContainer = (props: PokemonHeaderProps) => (
 	</div>
 );
 
-export const PokemonHeader = (props: PokemonHeaderProps) => {
-	return (
-		<header
-			{...props}
-			className={`bg-${props.type} text-white pt-4 ${props.className}`}
-		>
-			<HeaderContainer {...props} />
-		</header>
-	);
-};
+export const PokemonHeader = (props: PokemonHeaderProps) => (
+	<header
+		{...props}
+		className={`bg-${props.type} text-white pt-4 ${props.className}`}
+	>
+		<HeaderContainer {...props} />
+	</header>
+);
