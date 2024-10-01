@@ -5,3 +5,4 @@ export * from './PokemonItemList';
 export * from './PokemonStats';
 export * from './PokemonTypes';
 export * from './PokemonWeaknesses';
+export * from './UserProfile';
