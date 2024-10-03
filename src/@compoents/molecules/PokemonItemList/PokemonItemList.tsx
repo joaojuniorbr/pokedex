@@ -36,7 +36,7 @@ export const PokemonItemList = ({ name }: PokemonItemListProps) => {
 				</figure>
 			</Link>
 			<h3 className='text-center m-0 py-3 px-2 font-semibold border-t border-slate-300 truncate'>
-				{formatPokemonName(name)}
+				{formatPokemonName(data?.name)}
 			</h3>
 			<div className='py-3 border-t border-slate-300 flex w-full justify-center'>
 				{data.types.map((type) => (

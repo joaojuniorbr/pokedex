@@ -22,7 +22,10 @@ export const PokemonEvolution = ({ pokemonId }: { pokemonId: string }) => {
 					<div className='col'>
 						<PokemonCard
 							pokemonId={item.species_name}
-							actived={pokemonId === item.species_name}
+							actived={
+								pokemonId === item.species_name ||
+								pokemonId === item.species_id.toString()
+							}
 						/>
 					</div>
 				</Fragment>
