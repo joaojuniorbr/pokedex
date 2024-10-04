@@ -1,2 +1,4 @@
+import Favorites from './favorites';
+
 export * from './database';
-export * from './favorites';
+export { Favorites };

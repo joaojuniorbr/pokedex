@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import Favorites from '@database/favorites';
+import { Favorites } from '@database';
 import { message } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
