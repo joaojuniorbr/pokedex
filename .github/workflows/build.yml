@@ -51,6 +51,9 @@ jobs:
         run: yarn
 
       - name: Test and coverage
+        env:
+          VITE_APP_SUPABASE_URL: ${{ secrets.VITE_APP_SUPABASE_URL }}
+          VITE_APP_SUPABASE_ANON_KEY: ${{ secrets.VITE_APP_SUPABASE_ANON_KEY }}
         run: yarn coverage
 
       - name: SonarCloud Scan
@@ -107,5 +110,8 @@ jobs:
 
       - name: Run Chromatic
         uses: chromaui/action@latest
+        env:
+          VITE_APP_SUPABASE_URL: ${{ secrets.VITE_APP_SUPABASE_URL }}
+          VITE_APP_SUPABASE_ANON_KEY: ${{ secrets.VITE_APP_SUPABASE_ANON_KEY }}
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
