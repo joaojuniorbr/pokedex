@@ -7,6 +7,11 @@ const nav = [
 		icon: 'ri-home-4-line',
 	},
 	{
+		name: 'Favoritos',
+		path: '/favoritos',
+		icon: 'ri-star-line',
+	},
+	{
 		name: 'Perfil',
 		path: '/perfil',
 		icon: 'ri-user-line',
@@ -39,6 +44,7 @@ export const MainLayout = () => {
 									className={`text-lg mx-2 border border-slate-400 p-2 flex leading-none rounded-md transition-all ${styleActive(
 										item.path
 									)}`}
+									title={item.name}
 								>
 									<i className={item.icon} />
 								</Link>

@@ -1,11 +1,12 @@
 import { Image, Spin, Tooltip } from 'antd';
 
 import { formatPokemonName, formatPokemonNumber } from '@common';
-import { usePokemon } from '@hooks';
+import { useFavorites, usePokemon } from '@hooks';
 import { TypeNames } from '@assets/types';
 
 import { Link } from 'react-router-dom';
 import { IconType } from '@compoents/atoms';
+import { useCallback } from 'react';
 
 interface PokemonItemListProps {
 	name: string;
@@ -14,15 +15,42 @@ interface PokemonItemListProps {
 export const PokemonItemList = ({ name }: PokemonItemListProps) => {
 	const { data } = usePokemon(name);
 
+	const { addFavorite, isPokemonFavorited, removeFavorite } = useFavorites();
+
+	const idPokemon = data?.id.toString() || '';
+
+	const handleAddFavorite = useCallback(() => {
+		if (isPokemonFavorited(idPokemon)) {
+			removeFavorite(idPokemon);
+		} else {
+			addFavorite(idPokemon);
+		}
+	}, [addFavorite, removeFavorite, idPokemon, isPokemonFavorited]);
+
 	if (!data) {
 		return null;
 	}
 
+	const styleFavorite = isPokemonFavorited(idPokemon)
+		? 'bg-red-500 text-white'
+		: 'text-red-500';
+
+	const iconFavorite = isPokemonFavorited(idPokemon)
+		? 'ri-heart-fill'
+		: 'ri-heart-line';
+
 	return (
 		<div className='border-slate-300 border rounded-md bg-gradient-to-b from-slate-100 to-white relative shadow-md transition-all hover:translate-y-[-5px]'>
-			<span className='absolute top-2 right-2 text-xs font-bold block text-slate-400'>
-				{formatPokemonNumber(parseInt(data?.id.toString()))}
+			<span className='absolute top-2 left-2 text-xs font-bold block text-slate-400'>
+				{formatPokemonNumber(parseInt(idPokemon))}
 			</span>
+			<button
+				className={`${styleFavorite} absolute top-2 right-2 border border-red-500 flex h-8 w-8 text-lg text-white items-center justify-center rounded-full p-0 z-10`}
+				onClick={handleAddFavorite}
+				data-testid='favorite-button'
+			>
+				<i className={iconFavorite}></i>
+			</button>
 			<Link to={`/pokemon/${name}`}>
 				<figure className='p-3 w-full aspect-square flex justify-center items-center'>
 					<Image
