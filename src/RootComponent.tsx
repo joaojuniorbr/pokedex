@@ -23,7 +23,9 @@ const AppProviders = ({ children }: { children: React.ReactNode }) => (
 			<Auth0Provider
 				domain={import.meta.env.VITE_APP_AUTH0_DOMAIN}
 				clientId={import.meta.env.VITE_APP_AUTH0_CLIENTID}
-				authorizationParams={{ redirect_uri: window.location.origin }}
+				authorizationParams={{
+					redirect_uri: window.location.origin,
+				}}
 			>
 				<AppAnt>{children}</AppAnt>
 			</Auth0Provider>

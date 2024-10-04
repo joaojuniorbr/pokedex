@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import { vi } from 'vitest';
+import { BrowserRouter } from 'react-router-dom';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -14,7 +15,9 @@ const queryClient = new QueryClient({
 
 globalThis.renderWithQueryClient = (ui: React.ReactElement) => {
 	return render(
-		<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>
+		<QueryClientProvider client={queryClient}>
+			<BrowserRouter>{ui}</BrowserRouter>
+		</QueryClientProvider>
 	);
 };
 
