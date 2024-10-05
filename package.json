@@ -9,7 +9,7 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"test": "vitest",
+		"test": "vitest --watch=false",
 		"coverage": "vitest --coverage --ui",
 		"deepsource": "deepsource report --analyzer test-coverage --key javascript --value-file ./coverage/lcov.info",
 		"storybook": "storybook dev -p 6006 --no-open",

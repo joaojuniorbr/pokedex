@@ -8,9 +8,18 @@ import {
 } from '@pages';
 import { useAuth0 } from '@auth0/auth0-react';
 import { MainLayout } from '@compoents/templates';
+import { Loading } from '@compoents/atoms';
 
 function App() {
-	const { isAuthenticated } = useAuth0();
+	const { isAuthenticated, isLoading } = useAuth0();
+
+	if (isLoading) {
+		return (
+			<div className='w-full relative justify-center items-center h-lvh bg-[#dd2120]'>
+				<Loading className='absolute top-0 left-0 right-0 bottom-0' />
+			</div>
+		);
+	}
 
 	return (
 		<BrowserRouter>

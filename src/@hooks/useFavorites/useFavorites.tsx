@@ -5,6 +5,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export const useFavorites = () => {
 	const { user } = useAuth0();
+	const [isLoading, setIsLoading] = useState(true);
+
 	const [data, setData] = useState<
 		| {
 				pokemon_id: string;
@@ -18,7 +20,9 @@ export const useFavorites = () => {
 	);
 
 	const updateFavorites = useCallback(async () => {
+		setIsLoading(true);
 		const data = await favorites.getFavorites();
+		setIsLoading(false);
 		setData(data);
 	}, [favorites]);
 
@@ -43,6 +47,7 @@ export const useFavorites = () => {
 
 	return {
 		data,
+		isLoading,
 		addFavorite,
 		removeFavorite,
 		isPokemonFavorited,

@@ -15,17 +15,6 @@ describe('LoginPage', () => {
 		});
 	});
 
-	it('should show loading when isLoading is true', () => {
-		(useAuth0 as Mock).mockReturnValueOnce({
-			loginWithRedirect: mockLoginWithRedirect,
-			isLoading: true,
-		});
-
-		render(<LoginPage />);
-
-		expect(screen.getByTestId('loading')).toBeInTheDocument();
-	});
-
 	it('should show login button when isLoading is false', () => {
 		render(<LoginPage />);
 

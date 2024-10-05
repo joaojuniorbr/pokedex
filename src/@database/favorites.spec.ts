@@ -108,10 +108,6 @@ describe('Favorites', () => {
 
 		const result = await favorites.isPokemonFavorited(pokemonId);
 
-		const dataTest = await favorites.getFavorites();
-
-		console.log({ result, dataTest });
-
 		expect(result).toBe(true);
 		expect(database.from).toHaveBeenCalledWith('favorites');
 	});

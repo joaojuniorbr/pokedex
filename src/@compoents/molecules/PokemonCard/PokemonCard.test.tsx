@@ -88,7 +88,7 @@ describe('PokemonCard', () => {
 
 		render(
 			<Router>
-				<PokemonCard pokemonId='1' actived={true} />
+				<PokemonCard pokemonId='1' actived />
 			</Router>
 		);
 

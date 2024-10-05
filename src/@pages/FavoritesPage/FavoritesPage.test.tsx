@@ -45,4 +45,16 @@ describe('FavoritesPage', () => {
 
 		expect(removeFavorite).toHaveBeenCalledWith('bulbasaur');
 	});
+
+	it('renders a message when there are no favorites', () => {
+		mockUseFavorites.mockReturnValue({ data: [], isLoading: false });
+
+		render(
+			<MemoryRouter>
+				<FavoritesPage />
+			</MemoryRouter>
+		);
+
+		expect(screen.getByText('Nenhum pokemon adicionado')).toBeInTheDocument();
+	});
 });

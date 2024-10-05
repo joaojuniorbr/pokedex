@@ -17,7 +17,7 @@ export const PokemonItemList = ({ name }: PokemonItemListProps) => {
 
 	const { addFavorite, isPokemonFavorited, removeFavorite } = useFavorites();
 
-	const idPokemon = data?.id.toString() || '';
+	const idPokemon = data?.id.toString() as string;
 
 	const handleAddFavorite = useCallback(() => {
 		if (isPokemonFavorited(idPokemon)) {
@@ -45,7 +45,7 @@ export const PokemonItemList = ({ name }: PokemonItemListProps) => {
 				{formatPokemonNumber(parseInt(idPokemon))}
 			</span>
 			<button
-				className={`${styleFavorite} absolute top-2 right-2 border border-red-500 flex h-8 w-8 text-lg text-white items-center justify-center rounded-full p-0 z-10`}
+				className={`${styleFavorite} absolute top-2 right-2 border border-red-500 flex h-8 w-8 text-lg items-center justify-center rounded-full p-0 z-10`}
 				onClick={handleAddFavorite}
 				data-testid='favorite-button'
 			>

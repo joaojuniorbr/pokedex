@@ -1,4 +1,4 @@
-import { Button, Typography } from 'antd';
+import { Button, Spin, Typography } from 'antd';
 import autoAnimate from '@formkit/auto-animate';
 
 import { PageHeader } from '@compoents/atoms';
@@ -7,7 +7,7 @@ import { useFavorites } from '@hooks';
 import { useEffect, useRef } from 'react';
 
 export const FavoritesPage = () => {
-	const { data, removeFavorite } = useFavorites();
+	const { data, removeFavorite, isLoading } = useFavorites();
 
 	const parent = useRef(null);
 
@@ -22,11 +22,28 @@ export const FavoritesPage = () => {
 	}, [parent]);
 
 	return (
-		<>
+		<Spin spinning={isLoading} size='large'>
 			<PageHeader title='Favoritos' />
 
 			<div className='container py-3'>
-				{data?.length ? (
+				{Boolean(!data?.length && !isLoading) && (
+					<div className='text-center p-10'>
+						<img
+							src='/error-404.png'
+							alt='404'
+							className='mx-auto mb-5 block'
+						/>
+						<Typography.Title level={3} className='uppercase mb-4'>
+							Nenhum pokemon adicionado
+						</Typography.Title>
+
+						<Button href='/' type='primary' size='large'>
+							ADICIONAR
+						</Button>
+					</div>
+				)}
+
+				{data?.length && (
 					<div className='row g-3' ref={parent}>
 						{data.map((item) => (
 							<div
@@ -45,23 +62,8 @@ export const FavoritesPage = () => {
 							</div>
 						))}
 					</div>
-				) : (
-					<div className='text-center p-10'>
-						<img
-							src='/error-404.png'
-							alt='404'
-							className='mx-auto mb-5 block'
-						/>
-						<Typography.Title level={3} className='uppercase mb-4'>
-							Nenhum pokemon adicionado
-						</Typography.Title>
-
-						<Button href='/' type='primary' size='large'>
-							ADICIONAR
-						</Button>
-					</div>
 				)}
 			</div>
-		</>
+		</Spin>
 	);
 };
