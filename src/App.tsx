@@ -5,6 +5,7 @@ import {
 	LoginPage,
 	PokemonPage,
 	ProfilePage,
+	RoomsPage,
 } from '@pages';
 import { useAuth0 } from '@auth0/auth0-react';
 import { MainLayout } from '@compoents/templates';
@@ -30,6 +31,7 @@ function App() {
 						<Route path='/pokemon/:idPokemon' element={<PokemonPage />} />
 						<Route path='/perfil' element={<ProfilePage />} />
 						<Route path='/favoritos' element={<FavoritesPage />} />
+						<Route path='/batalha' element={<RoomsPage />} />
 					</Route>
 				</Routes>
 			) : (

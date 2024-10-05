@@ -9,10 +9,8 @@ export const ProfilePage = () => {
 		<>
 			<PageHeader title='Perfil' />
 
-			<div className='container'>
-				<section className='py-3'>
-					<UserProfile user={user} logout={logout} />
-				</section>
+			<div className='container py-3'>
+				<UserProfile user={user} logout={logout} />
 			</div>
 		</>
 	);

@@ -7,6 +7,11 @@ const nav = [
 		icon: 'ri-home-4-line',
 	},
 	{
+		name: 'Batalha',
+		path: '/batalha',
+		icon: 'ri-trophy-line',
+	},
+	{
 		name: 'Favoritos',
 		path: '/favoritos',
 		icon: 'ri-star-line',

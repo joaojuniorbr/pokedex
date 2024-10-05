@@ -1,10 +1,10 @@
+import { useEffect, useRef } from 'react';
 import { Button, Spin, Typography } from 'antd';
 import autoAnimate from '@formkit/auto-animate';
 
 import { PageHeader } from '@compoents/atoms';
 import { PokemonCard } from '@compoents/molecules';
 import { useFavorites } from '@hooks';
-import { useEffect, useRef } from 'react';
 
 export const FavoritesPage = () => {
 	const { data, removeFavorite, isLoading } = useFavorites();
@@ -43,9 +43,9 @@ export const FavoritesPage = () => {
 					</div>
 				)}
 
-				{data?.length && (
+				{Boolean(data?.length) && (
 					<div className='row g-3' ref={parent}>
-						{data.map((item) => (
+						{data?.map((item) => (
 							<div
 								className='col-6 col-md-4 col-lg-3 col-xl-2'
 								key={item.pokemon_id}
