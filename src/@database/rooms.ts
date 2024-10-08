@@ -24,7 +24,11 @@ class Rooms {
 		}
 	}
 
-	async joinRoom(roomId: string): Promise<RoomInterface | null> {
+	static async updateRoom(
+		roomId: string,
+		field: keyof RoomInterface,
+		value?: string | boolean
+	): Promise<RoomInterface | null> {
 		const { data: room, error } = await database
 			.from('rooms')
 			.select('*')
@@ -36,23 +40,14 @@ class Rooms {
 			return null;
 		}
 
-		if (room.creator_id && room.opponent_id) {
-			message.warning(
-				'A sala já está cheia! Apenas dois jogadores são permitidos.'
-			);
-			return null;
-		}
-
 		const { error: joinError } = await database
 			.from('rooms')
-			.update({ opponent_id: this.userId })
+			.update({ [field]: value })
 			.eq('id', roomId);
 
 		if (joinError) {
-			message.error('Erro ao entrar na sala:');
 			return null;
 		} else {
-			message.success('Entrou na sala com sucesso!');
 			return room;
 		}
 	}

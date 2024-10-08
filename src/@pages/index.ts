@@ -1,3 +1,4 @@
+export * from './BatlePage';
 export * from './FavoritesPage';
 export * from './HomePage';
 export * from './LoginPage';

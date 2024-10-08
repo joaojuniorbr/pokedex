@@ -6,8 +6,10 @@ import autoAnimate from '@formkit/auto-animate';
 import { PageHeader } from '@compoents/atoms';
 import { useRooms } from '@hooks/useRooms';
 import { RoomCard } from '@compoents/molecules';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const RoomsPage = () => {
+	const { user } = useAuth0();
 	const { data, isLoading, createRoom, deleteRoom } = useRooms();
 
 	const handleCreateRoom = useCallback(() => createRoom(), [createRoom]);
@@ -32,8 +34,12 @@ export const RoomsPage = () => {
 			<div className='container py-4'>
 				<div className='row g-3 justify-center' ref={parent}>
 					{data?.map((room) => (
-						<div className='col-6 col-md-4 col-lg-3' key={room.id}>
-							<RoomCard room={room} deleteRoom={handleDeleteRoom(room.id)} />
+						<div className='col-6 col-md-4 col-xl-3' key={room.id}>
+							<RoomCard
+								userId={user?.sub}
+								room={room}
+								deleteRoom={handleDeleteRoom(room.id)}
+							/>
 						</div>
 					))}
 				</div>

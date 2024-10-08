@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {
+	BattlePage,
 	FavoritesPage,
 	HomePage,
 	LoginPage,
@@ -10,6 +11,13 @@ import {
 import { useAuth0 } from '@auth0/auth0-react';
 import { MainLayout } from '@compoents/templates';
 import { Loading } from '@compoents/atoms';
+
+import { extend, locale } from 'dayjs';
+import 'dayjs/locale/pt-br';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+extend(relativeTime);
+locale('pt-br');
 
 function App() {
 	const { isAuthenticated, isLoading } = useAuth0();
@@ -32,6 +40,7 @@ function App() {
 						<Route path='/perfil' element={<ProfilePage />} />
 						<Route path='/favoritos' element={<FavoritesPage />} />
 						<Route path='/batalha' element={<RoomsPage />} />
+						<Route path='/batalha/:roomId' element={<BattlePage />} />
 					</Route>
 				</Routes>
 			) : (
